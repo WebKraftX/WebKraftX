@@ -1,0 +1,1789 @@
+/* ========================================================
+   HERO GALAXY / INTERSTELLAR SCENE STYLES
+   ======================================================== */
+
+.galaxySceneWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 740px;
+  height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  perspective: 1200px;
+  overflow: visible;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 1. LAYERED NEBULA GAS CLOUDS (Parallax Layer - Seamless Ambient Space Glows) */
+.nebulaParallaxLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nebulaCloud {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Nebula 1: Electric Violet (Center-Left) */
+.nebulaViolet {
+  top: 15%;
+  left: 15%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle,
+      rgba(139, 92, 246, 0.30) 0%,
+      rgba(139, 92, 246, 0.12) 42%,
+      transparent 70%);
+  filter: blur(95px);
+  animation: nebulaBreathe1 18s ease-in-out infinite alternate;
+}
+
+/* Nebula 2: Vivid Magenta (Top-Right) */
+.nebulaMagenta {
+  top: 4%;
+  left: 48%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle,
+      rgba(236, 72, 153, 0.26) 0%,
+      rgba(236, 72, 153, 0.08) 42%,
+      transparent 70%);
+  filter: blur(90px);
+  animation: nebulaBreathe2 20s ease-in-out infinite alternate;
+}
+
+/* Nebula 3: Deep Cosmic Blue (Bottom-Left) */
+.nebulaDeepBlue {
+  bottom: 0%;
+  left: 12%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle,
+      rgba(30, 64, 175, 0.28) 0%,
+      rgba(56, 189, 248, 0.10) 45%,
+      transparent 70%);
+  filter: blur(95px);
+  animation: nebulaBreathe3 16s ease-in-out infinite alternate;
+}
+
+/* Nebula 4: Luminous Teal (Center-Bottom) */
+.nebulaTeal {
+  bottom: 4%;
+  left: 46%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle,
+      rgba(20, 184, 166, 0.20) 0%,
+      rgba(20, 184, 166, 0.06) 45%,
+      transparent 70%);
+  filter: blur(85px);
+  animation: nebulaBreathe4 22s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaBreathe1 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1.08) translate(-15px, 12px);
+    opacity: 1;
+  }
+}
+
+@keyframes nebulaBreathe2 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.06) translate(18px, -15px);
+    opacity: 1;
+  }
+}
+
+@keyframes nebulaBreathe3 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.09) translate(12px, 16px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes nebulaBreathe4 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1.07) translate(-16px, -10px);
+    opacity: 1;
+  }
+}
+
+/* Large Soft Center Purple Glow (Direct on hero background, no hard boundaries) */
+.galaxyCoreGlow {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(168, 85, 247, 0.32) 0%,
+      rgba(139, 92, 246, 0.14) 38%,
+      transparent 70%);
+  filter: blur(85px);
+  pointer-events: none;
+  animation: corePulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes corePulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+/* 3. STARFIELD */
+.starfieldContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pinpointStar {
+  position: absolute;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  animation: starTwinkle infinite ease-in-out alternate;
+}
+
+.crossSparkleStar {
+  position: absolute;
+  color: #FDF4FF;
+  font-size: 13px;
+  line-height: 1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 8px #E879F9, 0 0 16px #A855F7;
+  animation: crossStarGlint infinite ease-in-out alternate;
+}
+
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes crossStarGlint {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-10deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3) rotate(20deg);
+    filter: drop-shadow(0 0 8px #FFFFFF);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.8) rotate(45deg);
+  }
+}
+
+/* 4. DIAGONAL SHOOTING STARS */
+.shootingStarTrail {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.95) 60%,
+      rgba(168, 85, 247, 0.8) 100%);
+  box-shadow: 0 0 8px #C084FC, 0 0 14px #FFFFFF;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 4;
+  transform-origin: left center;
+  animation: shootingStarAnim 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shootingStarAnim {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.2) translate3d(0, 0, 0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scaleX(1) translate3d(60px, 35px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleX(1.4) translate3d(180px, 110px, 0);
+  }
+}
+
+/* 5. SVG ORBIT RINGS & LINES */
+.galaxySvgOrbits {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  overflow: visible;
+}
+
+.orbitPulse {
+  animation: orbitBreathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes orbitBreathe {
+  0% {
+    opacity: 0.16;
+  }
+
+  100% {
+    opacity: 0.28;
+  }
+}
+
+.galaxyLine {
+  transition: stroke 0.35s ease, stroke-width 0.35s ease;
+}
+
+.galaxyLineActive {
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 1)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.7));
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+/* Satellite Orbit Layer */
+.satelliteLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.orbitingSatelliteWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.satelliteTrack1 {
+  animation: satelliteOrbit1 32s linear infinite;
+}
+
+.satelliteTrack2 {
+  animation: satelliteOrbit2 48s linear infinite reverse;
+}
+
+.satelliteDot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.satelliteCyan {
+  width: 6px;
+  height: 6px;
+  background: #38BDF8;
+  box-shadow: 0 0 10px #38BDF8, 0 0 18px rgba(56, 189, 248, 0.8);
+  transform: translate(210px, 0);
+}
+
+.satelliteViolet {
+  width: 8px;
+  height: 8px;
+  background: #C084FC;
+  box-shadow: 0 0 12px #C084FC, 0 0 22px rgba(192, 132, 252, 0.8);
+  transform: translate(325px, 0);
+}
+
+@keyframes satelliteOrbit1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes satelliteOrbit2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 6. GLOWING 3D VIOLET PAPER PLANE LEADER & DOTTED TRAIL */
+.planeFlightOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.planeTrailSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.heroPaperPlaneLeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+.heroPlaneBacklight {
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.95) 0%, rgba(147, 51, 234, 0.6) 45%, transparent 75%);
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heroPlaneImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(192, 132, 252, 0.95)) drop-shadow(0 0 32px rgba(139, 92, 246, 0.8)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Idle Paper Plane Glider (coasts gently across the galaxy at low opacity) */
+.idlePlaneGlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 50;
+  will-change: transform, opacity;
+}
+
+.idlePlaneGlow {
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.65) 0%, rgba(139, 92, 246, 0.3) 50%, transparent 75%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.idlePlaneImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Plane Burst Explosion */
+.planeBurstContainer {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  z-index: 90;
+}
+
+.burstRing {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #C084FC;
+  box-shadow: 0 0 20px #A855F7;
+  animation: burstRingAnim 0.55s ease-out forwards;
+}
+
+.burstFlash {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.9) 0%, rgba(168, 85, 247, 0.4) 50%, transparent 75%);
+  filter: blur(14px);
+  animation: burstFlashAnim 0.45s ease-out forwards;
+}
+
+.burstSparkle {
+  position: absolute;
+  color: #FDF4FF;
+  font-size: 14px;
+  text-shadow: 0 0 10px #C084FC;
+  animation: burstSparkleAnim 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes burstRingAnim {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes burstFlashAnim {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes burstSparkleAnim {
+  0% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+/* ========================================================
+   4. 3D FROSTED CRYSTAL STAGE COMPOSITION
+   ======================================================== */
+.crystalStageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 630px;
+  height: 504px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  user-select: none;
+}
+
+.stageTiltContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stageMoonlightAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 490px;
+  height: 390px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%,
+      rgba(168, 85, 247, 0.24) 0%,
+      rgba(56, 189, 248, 0.12) 42%,
+      transparent 72%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+  animation: moonlightBreathe 7s ease-in-out infinite alternate;
+}
+
+@keyframes moonlightBreathe {
+  0% {
+    transform: translate(-50%, -50%) scale(0.96);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 1;
+  }
+}
+
+.heroStageImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.65));
+}
+
+/* 4 Interactive Floating Card Hotspot Zones */
+.stageHotspot {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: none;
+  z-index: 30;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stageHotspot:hover {
+  transform: scale(1.03);
+}
+
+.stageHotspotActive {
+  z-index: 40;
+}
+
+.hotspotVeil {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1.5px solid;
+  pointer-events: none;
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.15);
+}
+
+/* Floating Interactive Label Chip */
+.stageLabelChip {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(14, 6, 28, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 80;
+}
+
+/* 7. SPIRAL GALAXY CONTAINER */
+.spiralGalaxyContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-6deg);
+  will-change: transform;
+  z-index: 6;
+}
+
+/* Node Anchor */
+.nodeAnchor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Float Loop Wrapper */
+.floatLoopWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Interactive 3D Card / Crystal Core Container */
+.objectContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+/* Central 3D Faceted Crystal Core */
+.crystalCoreContainer {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.crystalCoreImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.75))
+         drop-shadow(0 14px 28px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.crystalCoreContainer:hover .crystalCoreImg {
+  filter: drop-shadow(0 0 38px rgba(168, 85, 247, 0.95))
+         drop-shadow(0 0 48px rgba(56, 189, 248, 0.65))
+         drop-shadow(0 18px 36px rgba(0, 0, 0, 0.8));
+}
+
+/* 3D Glass Cards */
+.glassCardContainer {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.glassCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.65));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.glassCardContainer:hover .glassCardImg {
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.85))
+         drop-shadow(0 0 24px rgba(168, 85, 247, 0.5));
+}
+
+/* Fallback Node Mock */
+.fallbackNodeMock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.fallbackDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fallbackTitle {
+  white-space: nowrap;
+}
+
+/* Snap Landing Glow Splash */
+.snapGlowSplash {
+  position: absolute;
+  width: 190%;
+  height: 190%;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+  animation: snapSplashAnim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes snapSplashAnim {
+  0% {
+    opacity: 0.95;
+    transform: scale(0.35);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* Hover Glow Aura */
+.glowAura {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: scale(0.85);
+  z-index: -1;
+}
+
+.glowAuraVisible {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+/* Mini Warp Ring on Hover */
+.miniWarpRing {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 18px;
+  border: 1.5px solid;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========================================================
+   UI SNAPSHOT MOCKS FOR ALL 8 SERVICES
+   ======================================================== */
+
+/* 1. Web Development Core Mock */
+.mockWebDev {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 8px 10px;
+}
+
+.mockBrowserHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mockDots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mockDots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mockUrlPill {
+  font-size: 8.5px;
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1.5px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.mockHeroBody {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.mockHeadlineBar {
+  height: 8px;
+  width: 65%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #38BDF8, #A855F7);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.mockSubHeadlineBar {
+  height: 5px;
+  width: 42%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.mockBtnRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.mockPrimaryBtn {
+  height: 13px;
+  width: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38BDF8, #8B5CF6);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+.mockSecondaryBtn {
+  height: 13px;
+  width: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mockColumnsRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  flex: 1;
+}
+
+.mockColBox {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 5px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mockColLine {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 2. Analytics Dashboard Mock */
+.mockAnalytics {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 8px 10px;
+  justify-content: space-between;
+}
+
+.mockCardTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mockIconGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mockMicroText {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mockPillBadge {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid;
+  background: rgba(45, 212, 191, 0.12);
+}
+
+.mockChartBars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 42px;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.mockChartBars span {
+  flex: 1;
+  border-radius: 3px 3px 1px 1px;
+  background: linear-gradient(180deg, #2DD4BF 0%, #8B5CF6 100%);
+  box-shadow: 0 0 8px rgba(45, 212, 191, 0.4);
+  transform-origin: bottom center;
+}
+
+.bar1 {
+  animation: barPulse1 3.2s ease-in-out infinite alternate;
+}
+
+.bar2 {
+  animation: barPulse2 2.8s ease-in-out infinite alternate;
+}
+
+.bar3 {
+  animation: barPulse3 3.6s ease-in-out infinite alternate;
+}
+
+.bar4 {
+  animation: barPulse4 2.4s ease-in-out infinite alternate;
+}
+
+.bar5 {
+  animation: barPulse5 3.0s ease-in-out infinite alternate;
+}
+
+@keyframes barPulse1 {
+
+  0%,
+  100% {
+    height: 42%;
+  }
+
+  50% {
+    height: 68%;
+  }
+}
+
+@keyframes barPulse2 {
+
+  0%,
+  100% {
+    height: 80%;
+  }
+
+  50% {
+    height: 48%;
+  }
+}
+
+@keyframes barPulse3 {
+
+  0%,
+  100% {
+    height: 60%;
+  }
+
+  50% {
+    height: 90%;
+  }
+}
+
+@keyframes barPulse4 {
+
+  0%,
+  100% {
+    height: 95%;
+  }
+
+  50% {
+    height: 62%;
+  }
+}
+
+@keyframes barPulse5 {
+
+  0%,
+  100% {
+    height: 70%;
+  }
+
+  50% {
+    height: 100%;
+  }
+}
+
+.mockChartAxis {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+/* 3. Mobile Apps Mock */
+.mockMobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 6px 7px;
+  align-items: center;
+}
+
+.mockIsland {
+  width: 26px;
+  height: 5px;
+  background: #000000;
+  border-radius: 999px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mockPhoneScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  flex: 1;
+}
+
+.mockPhoneHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 4px;
+}
+
+.mockAvatarDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
+}
+
+.mockPhoneCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mockDotIcon {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.mockPhoneLines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.mockPhoneLine {
+  height: 3.5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.mockPhoneDock {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mockPhoneDock span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 4. Video Player Mock */
+.mockVideo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 7px 8px;
+  justify-content: space-between;
+}
+
+.mockVideoThumb {
+  position: relative;
+  height: 58px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.25) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border: 1px solid rgba(217, 70, 239, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mockPlayBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(217, 70, 239, 0.85);
+  animation: playGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes playGlow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(217, 70, 239, 0.6);
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 22px rgba(217, 70, 239, 0.95);
+  }
+}
+
+.mockBadge4k {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  font-size: 7px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.mockScrubberRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.mockScrubberTrack {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.mockScrubberFill {
+  height: 100%;
+  width: 62%;
+  background: #D946EF;
+  border-radius: 2px;
+  box-shadow: 0 0 6px #D946EF;
+}
+
+.mockScrubberHead {
+  position: absolute;
+  top: 50%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 6px #D946EF;
+}
+
+.mockTimeText {
+  font-size: 7.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 5. E-Commerce Mock */
+.mockEcommerce {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 7px 8px;
+  justify-content: space-between;
+}
+
+.mockProductVisual {
+  height: 52px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.08) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.mockStarRow {
+  display: flex;
+  gap: 2px;
+  font-size: 8px;
+  color: #FBBF24;
+}
+
+.mockProductDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.mockLineGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mockPriceText {
+  font-size: 11px;
+  font-weight: 800;
+  color: #FBBF24;
+  line-height: 1;
+}
+
+.mockStockLine {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mockAddBtn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FBBF24;
+  color: #1E1B2E;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+/* 6. Code Editor Mock */
+.mockCode {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 6px 8px;
+}
+
+.mockCodeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 5px;
+}
+
+.mockCodeFileName {
+  font-size: 8px;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mockCodeLines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: monospace;
+  font-size: 8px;
+}
+
+.codeRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.cNum {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 7px;
+  width: 6px;
+}
+
+.cKeyword {
+  color: #A855F7;
+  font-weight: 600;
+}
+
+.cVar {
+  color: #38BDF8;
+}
+
+.cOp {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cFunc {
+  color: #2DD4BF;
+}
+
+.cIndent {
+  width: 6px;
+}
+
+.cProp {
+  color: #EC4899;
+}
+
+.cNumVal {
+  color: #FBBF24;
+}
+
+.cStr {
+  color: #38BDF8;
+}
+
+/* 7. Conversion Rate (CRO) Mock */
+.mockCro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 7px 8px;
+  justify-content: space-between;
+}
+
+.mockActiveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #EC4899;
+  box-shadow: 0 0 6px #EC4899;
+}
+
+.mockFormFields {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.mockInputBox {
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.mockInputPlaceholder {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mockSubmitBtn {
+  height: 16px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #EC4899, #F43F5E);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+  margin-top: 1px;
+}
+
+.mockSubmitLabel {
+  width: 24px;
+  height: 3.5px;
+  border-radius: 2px;
+  background: #FFFFFF;
+}
+
+/* 8. Social Branding Mock */
+.mockSocial {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 7px 8px;
+  justify-content: space-between;
+}
+
+.mockSocialHeader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mockAvatarGradient {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EC4899, #8B5CF6);
+  box-shadow: 0 0 6px rgba(236, 72, 153, 0.6);
+}
+
+.mockSocialMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mockSocialName {
+  width: 32px;
+  height: 3.5px;
+  border-radius: 2px;
+  background: #FFFFFF;
+}
+
+.mockSocialHandle {
+  width: 20px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.mockSocialMedia {
+  height: 34px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.25), rgba(56, 189, 248, 0.15));
+  border: 1px solid rgba(217, 70, 239, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mockWaveArt {
+  width: 45px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #D946EF55, transparent 70%);
+  filter: blur(4px);
+}
+
+.mockSocialFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mockHeartGroup {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.mockLikeCount {
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 9. UI/UX Design Mock */
+.mockUiUx {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 6px 7px;
+  justify-content: space-between;
+}
+
+.mockUiUxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mockToolsRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mockCanvasSize {
+  font-size: 7.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mockArtboard {
+  position: relative;
+  height: 52px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(236, 72, 153, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mockWireframeBox {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 28px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.mockActiveShape {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  width: 32px;
+  height: 20px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(139, 92, 246, 0.25));
+  border: 1px solid #EC4899;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+}
+
+.mockBezierSvg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Glass Label Chip with Star ✦ */
+.labelChip {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(15, 7, 30, 0.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
+  z-index: 120;
+}
+
+.labelChipVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.chipStar {
+  font-size: 0.95rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.chipTextGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.chipTitle {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.chipTagline {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #D8B4FE;
+  line-height: 1.2;
+}
+
+.chipArrow {
+  color: #FFFFFF;
+  margin-left: 4px;
+  opacity: 0.9;
+}
+
+/* 8. GLASS REPLAY BUTTON */
+.replayWarpBtn {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 15px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  z-index: 80;
+}
+
+.replayWarpBtn:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.35);
+}
+
+.spinIcon {
+  animation: rotateSpin 0.75s linear infinite;
+}
+
+@keyframes rotateSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Scaling */
+@media (max-width: 1280px) {
+  .galaxySceneWrapper {
+    max-width: 660px;
+    height: 580px;
+  }
+}
+
+@media (max-width: 980px) {
+  .galaxySceneWrapper {
+    max-width: 560px;
+    height: 520px;
+    margin: 1.5rem auto 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .galaxySceneWrapper {
+    max-width: 440px;
+    height: 420px;
+    transform: scale(0.78);
+    transform-origin: center center;
+  }
+
+  .labelChip {
+    padding: 5px 12px;
+  }
+
+  .chipTitle {
+    font-size: 0.82rem;
+  }
+
+  .chipTagline {
+    display: none;
+  }
+
+  .replayWarpBtn {
+    font-size: 0.76rem;
+    padding: 5px 12px;
+    bottom: 2px;
+    right: 4px;
+  }
+}
+
+@media (max-width: 440px) {
+  .galaxySceneWrapper {
+    max-width: 360px;
+    height: 380px;
+    transform: scale(0.64);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 360px) {
+  .galaxySceneWrapper {
+    transform: scale(0.55);
+    transform-origin: center center;
+  }
+}

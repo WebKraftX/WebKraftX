@@ -1,0 +1,1211 @@
+/* ========================================================
+   PRICING APPROACH SECTION — DARK PURPLE IDENTITY
+   Theme: "How we charge, not how much" (No price tags)
+   Palette: #13091F base, #1C1030 panels, #C7A7FF / #A66BFF accents
+   ======================================================== */
+
+.pricingApproachSection {
+  position: relative;
+  background-color: #13091F;
+  color: #F8F5FF;
+  padding: clamp(5.5rem, 8vw, 8rem) 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Ambient Purple Glows */
+.ambientTopGlow {
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(166, 107, 255, 0.06) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientBottomGlow {
+  position: absolute;
+  bottom: -15%;
+  left: -8%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(166, 107, 255, 0.14) 0%, transparent 65%);
+  filter: blur(75px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.innerContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, clamp(1.25rem, 4vw, 2.75rem));
+}
+
+/* ========================================================
+   MAIN TWO-COLUMN GRID
+   ======================================================== */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: flex-start;
+}
+
+/* ========================================================
+   LEFT COLUMN: HEADLINE, INTRO, ESTIMATE VISUAL & CTA
+   ======================================================== */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: sticky;
+  top: 100px;
+}
+
+/* 1. Section Label */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C7A7FF;
+  margin-bottom: 1.4rem;
+}
+
+.labelDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #A66BFF;
+  box-shadow: 0 0 10px rgba(166, 107, 255, 0.8);
+  display: inline-block;
+}
+
+/* 2. Headline with Glow & Animated Gradient Shimmer */
+.headlineAmbientGlow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 420px;
+  height: 240px;
+  background: radial-gradient(ellipse at center, rgba(166, 107, 255, 0.28) 0%, rgba(124, 58, 237, 0.1) 50%, transparent 75%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: headlineGlowBreathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes headlineGlowBreathe {
+  0% {
+    opacity: 0.15;
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: scale(1.04);
+  }
+}
+
+.headline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-headline);
+  font-size: clamp(2.1rem, 3.2vw, 3.3rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #F8F5FF;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.headlineLineSolid {
+  display: flex;
+  flex-wrap: wrap;
+  color: #FFFFFF;
+}
+
+.headlineLineShimmer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.headlineWordMask {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: top;
+}
+
+.headlineWordInner {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  color: #FFFFFF;
+}
+
+.investmentWord {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFFFFF 0%, #C7A7FF 35%, #A66BFF 70%, #E9D5FF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #C7A7FF;
+  animation: gradientShimmerDrift 6s linear infinite;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes gradientShimmerDrift {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* 3. Intro Paragraph */
+.introParagraph {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.72;
+  color: #B8AEC8;
+  margin: 0 0 2rem 0;
+  max-width: 480px;
+}
+
+/* ========================================================
+   3. HERO MOMENT — "THE ESTIMATE" TRANSLUCENT SHEET
+   ======================================================== */
+.estimateVisualAnchor {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 2rem;
+  perspective: 1000px;
+}
+
+.estimateSheet {
+  position: relative;
+  width: 100%;
+  background: rgba(36, 21, 64, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(199, 167, 255, 0.28);
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 20px 45px rgba(10, 4, 20, 0.45),
+    0 0 35px rgba(124, 58, 237, 0.16);
+  animation: estimateFloat 6s ease-in-out infinite alternate;
+  will-change: transform;
+  overflow: hidden;
+}
+
+@keyframes estimateFloat {
+  0% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+/* Light glare overlay shifting across the glass surface */
+.glassGlareOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+
+/* Perched 3D Paper Plane (Top-Right) with 8s loop-de-loop */
+.perchedPlaneWrap {
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  width: 46px;
+  height: 32px;
+  z-index: 5;
+  filter: drop-shadow(0 8px 18px rgba(124, 58, 237, 0.55));
+  animation: planeFlightLoop 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 20px 20px;
+  will-change: transform;
+}
+
+@keyframes planeFlightLoop {
+  0% {
+    transform: translate(0, 0) rotate(-3deg);
+  }
+
+  18% {
+    transform: translate(-2px, -5px) rotate(2deg);
+  }
+
+  36% {
+    transform: translate(0, 0) rotate(-3deg);
+  }
+
+  54% {
+    transform: translate(-2px, -5px) rotate(2deg);
+  }
+
+  70% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  /* Loop-de-loop takeoff around corner */
+  76% {
+    transform: translate(12px, -14px) rotate(20deg) scale(1.05);
+  }
+
+  83% {
+    transform: translate(-14px, -32px) rotate(-160deg) scale(0.92);
+  }
+
+  89% {
+    transform: translate(-24px, -12px) rotate(-300deg) scale(0.96);
+  }
+
+  95% {
+    transform: translate(4px, -4px) rotate(-355deg) scale(1.02);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(-363deg);
+  }
+}
+
+.perchedPlaneImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Top Sheet Bar */
+.sheetTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(199, 167, 255, 0.15);
+  margin-bottom: 1rem;
+}
+
+.sheetDotCluster {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sheetDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.scopePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  background: rgba(166, 107, 255, 0.15);
+  border: 1px solid rgba(199, 167, 255, 0.3);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #C7A7FF;
+}
+
+.scopePulseDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #A66BFF;
+  box-shadow: 0 0 6px #A66BFF;
+}
+
+/* Sheet Body */
+.sheetBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sheetTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sheetMainLine {
+  width: 65%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #A66BFF 0%, rgba(166, 107, 255, 0.3) 100%);
+}
+
+.sheetSubLine {
+  width: 45%;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(199, 167, 255, 0.25);
+}
+
+/* Milestone Bars Grid */
+.milestoneBarsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: rgba(20, 10, 36, 0.5);
+  border: 1px solid rgba(199, 167, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.milestoneBarItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.milestoneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  font-family: var(--font-body);
+}
+
+.milestoneDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #A66BFF;
+  margin-right: 6px;
+}
+
+.milestoneLabel {
+  color: #F8F5FF;
+  font-weight: 500;
+  flex: 1;
+}
+
+.milestoneStatus {
+  color: #C7A7FF;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.milestoneTrack {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  position: relative;
+  overflow: visible;
+}
+
+.milestoneFill {
+  height: 100%;
+  background: linear-gradient(90deg, #7C3AED 0%, #A66BFF 100%);
+  border-radius: 3px;
+  position: relative;
+  will-change: transform;
+}
+
+.milestoneTipPulse {
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px 2px #C7A7FF, 0 0 16px 4px rgba(166, 107, 255, 0.7);
+  animation: tipPulseLoop 2s ease-in-out infinite alternate;
+}
+
+@keyframes tipPulseLoop {
+  0% {
+    transform: translateY(-50%) scale(0.85);
+    box-shadow: 0 0 6px 1px #C7A7FF;
+  }
+
+  100% {
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 0 0 14px 3px #FFFFFF, 0 0 20px 5px rgba(166, 107, 255, 0.9);
+  }
+}
+
+.sheetFooterNotice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #B8AEC8;
+  opacity: 0.9;
+}
+
+.twinkleSparkle1 {
+  color: #A66BFF;
+  display: inline-block;
+  animation: sparkleTwinkle 3s ease-in-out infinite alternate;
+}
+
+.twinkleSparkle2 {
+  color: #C7A7FF;
+  display: inline-block;
+  animation: sparkleTwinkle 3s ease-in-out 1.5s infinite alternate;
+}
+
+@keyframes sparkleTwinkle {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.8) rotate(-8deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.25) rotate(8deg);
+    filter: drop-shadow(0 0 6px rgba(199, 167, 255, 0.9));
+  }
+}
+
+/* ========================================================
+   4. CTA BUTTON & REASSURANCE
+   ======================================================== */
+.ctaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.primaryCtaBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #8B2FFF 0%, #6D28D9 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 24px rgba(139, 47, 255, 0.4),
+    0 0 18px rgba(166, 107, 255, 0.25);
+  cursor: pointer;
+  overflow: hidden;
+  will-change: transform;
+  animation: ctaGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes ctaGlowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(139, 47, 255, 0.4),
+      0 0 18px rgba(166, 107, 255, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 10px 32px rgba(139, 47, 255, 0.65),
+      0 0 34px rgba(199, 167, 255, 0.55);
+  }
+}
+
+.primaryCtaBtn:hover {
+  box-shadow: 0 14px 38px rgba(139, 47, 255, 0.7),
+    0 0 35px rgba(199, 167, 255, 0.6);
+}
+
+.btnShineSweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  transform: skewX(-20deg);
+  animation: shineSweep 4.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shineSweep {
+  0% {
+    left: -100%;
+  }
+
+  30% {
+    left: 160%;
+  }
+
+  100% {
+    left: 160%;
+  }
+}
+
+.btnText {
+  position: relative;
+  z-index: 1;
+}
+
+.btnArrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.primaryCtaBtn:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+.reassuranceLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #B8AEC8;
+}
+
+.reassuranceClock {
+  color: #A66BFF;
+}
+
+/* ========================================================
+   RIGHT COLUMN: 5 JOURNEY TILES & CONNECTING LINE
+   ======================================================== */
+.rightCol {
+  position: relative;
+  width: 100%;
+}
+
+.journeyTrackWrapper {
+  position: relative;
+  padding-left: 28px;
+}
+
+/* Connecting Vertical Line Track */
+.verticalTrackLine {
+  position: absolute;
+  top: 36px;
+  bottom: 36px;
+  left: 3px;
+  width: 2px;
+  background: rgba(168, 85, 247, 0.2);
+  border-radius: 1px;
+}
+
+.verticalTrackProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #A66BFF 0%, #762FE0 100%);
+  transform-origin: top;
+}
+
+/* Glowing light orb continuously traveling down the line in a loop */
+.travelingOrb {
+  position: absolute;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 12px 3px rgba(166, 107, 255, 0.95), 0 0 22px 6px rgba(124, 58, 237, 0.6);
+  animation: orbTravelLoop 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes orbTravelLoop {
+  0% {
+    top: 0%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  6% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  94% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Stack of 5 Tiles */
+.stepsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Frosted Dark Glass Tile */
+.journeyTile {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: rgba(28, 16, 48, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 12px 30px rgba(10, 4, 20, 0.35),
+    0 0 20px rgba(124, 58, 237, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.journeyTile:hover {
+  transform: translateY(-8px);
+  background: rgba(36, 21, 64, 0.88);
+  border-color: rgba(199, 167, 255, 0.55);
+  box-shadow: 0 22px 50px rgba(10, 4, 20, 0.65),
+    0 0 35px rgba(166, 107, 255, 0.35);
+}
+
+/* Faint diagonal shine sweeping across on hover */
+.cardDiagonalShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.16) 50%,
+      transparent 60%,
+      transparent 100%);
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-position 0.65s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.journeyTile:hover .cardDiagonalShine {
+  opacity: 1;
+  background-position: -150% 0;
+}
+
+/* Track Node connected to the vertical line */
+.trackNode {
+  position: absolute;
+  left: -31px;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #13091F;
+  border: 2px solid rgba(168, 85, 247, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trackNodeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #A66BFF;
+  box-shadow: 0 0 8px rgba(166, 107, 255, 0.8);
+  animation: nodeDotPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes nodeDotPulse {
+  0% {
+    transform: scale(0.85);
+    box-shadow: 0 0 6px rgba(166, 107, 255, 0.4);
+  }
+
+  100% {
+    transform: scale(1.3);
+    box-shadow: 0 0 14px rgba(199, 167, 255, 0.95), 0 0 5px #FFFFFF;
+  }
+}
+
+.journeyTile:hover .trackNode {
+  border-color: #A66BFF;
+  box-shadow: 0 0 14px rgba(166, 107, 255, 0.9);
+}
+
+/* Icon Badge: Glossy Purple/Lavender Brand Badge (3D flip/pop on hover) */
+.stepIconBadge {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(166, 107, 255, 0.24) 0%, rgba(118, 47, 224, 0.36) 100%);
+  border: 1px solid rgba(199, 167, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C7A7FF;
+  box-shadow: 0 6px 16px rgba(118, 47, 224, 0.25);
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.journeyTile:hover .stepIconBadge {
+  transform: perspective(600px) rotateY(180deg) scale(1.15);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #8B2FFF 0%, #6D28D9 100%);
+  box-shadow: 0 10px 24px rgba(139, 47, 255, 0.55);
+}
+
+.stepIconSvg {
+  transition: transform 0.25s ease;
+}
+
+/* Content inside step */
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stepHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepTitle {
+  font-family: var(--font-headline);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.stepNumberPill {
+  font-family: monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #C7A7FF;
+  background: rgba(166, 107, 255, 0.12);
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(199, 167, 255, 0.2);
+  opacity: 0.75;
+  transition: transform 0.3s ease,
+    opacity 0.3s ease,
+    text-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.journeyTile:hover .stepNumberPill {
+  opacity: 1;
+  transform: scale(1.12);
+  color: #F8F5FF;
+  border-color: rgba(199, 167, 255, 0.5);
+  background: rgba(166, 107, 255, 0.24);
+  text-shadow: 0 0 10px rgba(199, 167, 255, 0.85);
+}
+
+.stepDescription {
+  font-family: var(--font-body);
+  font-size: 0.91rem;
+  line-height: 1.62;
+  color: #B8AEC8;
+  margin: 0;
+}
+
+.titleDesktop {
+  display: inline;
+}
+
+.titleMobile {
+  display: none;
+}
+
+.descDesktop {
+  display: inline;
+}
+
+.descMobile {
+  display: none;
+}
+
+/* ========================================================
+   MODAL: PROJECT ESTIMATE MINI FORM
+   ======================================================== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 4, 20, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalCard {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #1C1030;
+  border: 1.5px solid rgba(199, 167, 255, 0.32);
+  border-radius: 24px;
+  padding: 2.2rem 2.2rem 1.8rem 2.2rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 45px rgba(124, 58, 237, 0.25);
+  color: #F8F5FF;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #C7A7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  transform: rotate(90deg);
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalScopeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #A66BFF;
+}
+
+.modalTitle {
+  font-family: var(--font-headline);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  margin: 0;
+}
+
+.modalSubtitle {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #B8AEC8;
+  margin: 0;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #C7A7FF;
+  letter-spacing: 0.02em;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  background: rgba(14, 6, 26, 0.7);
+  border: 1px solid rgba(199, 167, 255, 0.22);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #F8F5FF;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  border-color: #A66BFF;
+  box-shadow: 0 0 12px rgba(166, 107, 255, 0.3);
+}
+
+.formSelect {
+  cursor: pointer;
+}
+
+.selectOption {
+  background: #1C1030;
+  color: #F8F5FF;
+}
+
+.formTextarea {
+  resize: vertical;
+}
+
+.modalSubmitBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #8B2FFF 0%, #6D28D9 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(139, 47, 255, 0.4);
+  transition: all 0.2s ease;
+}
+
+.modalSubmitBtn:hover {
+  box-shadow: 0 12px 30px rgba(139, 47, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+.modalFootnote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  color: #B8AEC8;
+  margin: 0.85rem 0 0 0;
+}
+
+/* Modal Success State */
+.modalSuccessState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.successIconCircle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(166, 107, 255, 0.15);
+  border: 1.5px solid rgba(166, 107, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.successTitle {
+  font-family: var(--font-headline);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  margin: 0 0 0.6rem 0;
+}
+
+.successDesc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #B8AEC8;
+  margin: 0;
+  max-width: 380px;
+}
+
+/* ========================================================
+   RESPONSIVE LAYOUT
+   ======================================================== */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .leftCol {
+    position: static;
+  }
+
+  .estimateVisualAnchor {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .titleDesktop {
+    display: none !important;
+  }
+
+  .titleMobile {
+    display: inline !important;
+  }
+
+  .descDesktop {
+    display: none !important;
+  }
+
+  .descMobile {
+    display: inline !important;
+  }
+
+  .stepDescription {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .pricingApproachSection {
+    padding: 3.5rem 0;
+  }
+
+  .headline {
+    font-size: 1.85rem;
+  }
+
+  .journeyTile {
+    padding: 0.95rem 1rem !important;
+    gap: 0.85rem !important;
+    border-radius: 14px !important;
+  }
+
+  .journeyTrackWrapper {
+    padding-left: 16px;
+  }
+
+  .trackNode {
+    left: -20px;
+    top: 18px;
+  }
+
+  .stepIconBadge {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 10px !important;
+  }
+
+  .stepIconSvg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .stepTitle {
+    font-size: 0.94rem !important;
+  }
+
+  .modalCard {
+    padding: 1.6rem 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .headlineAmbientGlow,
+  .headlineLineShimmer,
+  .perchedPlaneWrap,
+  .milestoneTipPulse,
+  .twinkleSparkle1,
+  .twinkleSparkle2,
+  .travelingOrb,
+  .trackNodeDot,
+  .primaryCtaBtn,
+  .btnShineSweep,
+  .cardDiagonalShine {
+    animation: none !important;
+  }
+
+  .journeyTile:hover {
+    transform: none !important;
+  }
+
+  .journeyTile:hover .stepIconBadge {
+    transform: none !important;
+  }
+}

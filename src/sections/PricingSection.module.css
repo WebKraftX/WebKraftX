@@ -1,0 +1,207 @@
+.pricingSection {
+  padding: 6.5rem 0;
+  background-color: var(--bg-alt);
+  position: relative;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 960px) {
+  .plansGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.planCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.popularCard {
+  border: 2px solid var(--color-blue);
+  box-shadow: 0 12px 36px rgba(30, 91, 255, 0.12);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-blue);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(30, 91, 255, 0.3);
+}
+
+.planHeader {
+  margin-bottom: 2rem;
+}
+
+.planName {
+  font-family: var(--font-headline);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-navy);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.4px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.priceNum {
+  font-family: var(--font-headline);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--text-navy);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.pricePeriod {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.planDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.timelinePill {
+  display: inline-block;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-blue);
+  font-weight: 600;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.featuresHeading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-subtle);
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkWrap {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-blue-light);
+  color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-navy);
+  line-height: 1.45;
+}
+
+.planCtaBtn {
+  width: 100%;
+}
+
+.customQuoteBox {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.infoIcon {
+  color: var(--color-blue);
+  flex-shrink: 0;
+}
+
+.customQuoteText {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.customLink {
+  background: none;
+  border: none;
+  color: var(--color-blue);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}

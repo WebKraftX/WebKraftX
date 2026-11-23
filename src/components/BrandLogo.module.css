@@ -1,0 +1,76 @@
+.logoWrap {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.logoWrap:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.logoWrap:active {
+  transform: translateY(0);
+}
+
+.headerLogoImg {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(124, 58, 237, 0.35));
+}
+
+.navbar .headerLogoImg {
+  height: 42px;
+}
+
+.sm .headerLogoImg {
+  height: 28px;
+}
+
+.md .headerLogoImg {
+  height: 36px;
+}
+
+.lg .headerLogoImg {
+  height: 48px;
+}
+
+@media (max-width: 680px) {
+  .headerLogoImg,
+  .navbar .headerLogoImg {
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerLogoImg,
+  .navbar .headerLogoImg {
+    height: 31px;
+  }
+}
+
+/* Brand Wordmark Text helper */
+.brandText {
+  font-family: var(--font-headline, 'Sora', 'Space Grotesk', sans-serif);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.brandX {
+  color: #A855F7;
+  background: linear-gradient(135deg, #C084FC 0%, #9333EA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  font-weight: 800;
+  margin-left: 0.5px;
+}

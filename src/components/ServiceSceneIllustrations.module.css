@@ -1,0 +1,1352 @@
+/* ========================================================
+   FUTURISTIC 3D HOLOGRAPHIC MOTION SYSTEM — WEBKRAFTX SERVICES
+   - NO crude doodles, NO static images
+   - Every scene is a rich, high-tech holographic machine:
+     * Web Dev: live code stream, layout wireframe mesh, laser cursor sweep
+     * CRO: liquid particle shower, swirling vortex, +48% uplift dial
+     * SEO: ascending 3D rank pillars, sonar radar sweep lens, SERP beacon
+     * Paid Ads: concentric bullseye target, comet arrow strike, shockwaves
+     * Social: spinning globe, live reaction stream bubbling upwards
+     * Short Video: snapping clapperboard with flash, dancing audio equalizer
+     * AI Video: full holographic AI Video Creation Studio (prompt bar, neural core orb, keyframes, render timeline)
+   - Layered environment: deep purple base + drifting aurora + floor reflection + bokeh
+   ======================================================== */
+
+.holoContainer {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 20px 20px 0 0;
+  background: radial-gradient(ellipse at 50% 50%, #190B38 0%, #0E0422 55%, #060210 100%);
+}
+
+.edgeVignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 60px rgba(6, 2, 16, 0.95), inset 0 0 110px rgba(6, 2, 16, 0.8);
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* --------------------------------------------------------
+   DRIFTING AURORA GLOW BEHIND OBJECTS
+   -------------------------------------------------------- */
+.auroraGlow {
+  position: absolute;
+  width: 520px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 2;
+  animation: auroraDrift 8s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+@keyframes auroraDrift {
+  0% { transform: translate(-35px, -20px) scale(0.95); }
+  50% { transform: translate(30px, 15px) scale(1.1); }
+  100% { transform: translate(-15px, 25px) scale(1); }
+}
+
+.auroraWeb {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.55) 0%, rgba(59, 130, 246, 0.38) 45%, rgba(168, 85, 247, 0.18) 75%, transparent 100%);
+}
+.auroraCro {
+  background: radial-gradient(circle, rgba(200, 243, 29, 0.55) 0%, rgba(16, 185, 129, 0.4) 45%, rgba(6, 182, 212, 0.18) 75%, transparent 100%);
+}
+.auroraSeo {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(139, 92, 246, 0.4) 45%, rgba(34, 211, 238, 0.18) 75%, transparent 100%);
+}
+.auroraPaidAds {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.55) 0%, rgba(236, 72, 153, 0.4) 45%, rgba(251, 113, 133, 0.18) 75%, transparent 100%);
+}
+.auroraSocial {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, rgba(6, 182, 212, 0.4) 40%, rgba(200, 243, 29, 0.22) 75%, transparent 100%);
+}
+.auroraShortVideo {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, rgba(249, 115, 22, 0.4) 45%, rgba(200, 243, 29, 0.18) 75%, transparent 100%);
+}
+.auroraAiVideo {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.55) 0%, rgba(168, 85, 247, 0.5) 45%, rgba(232, 121, 249, 0.22) 75%, transparent 100%);
+}
+
+/* --------------------------------------------------------
+   REFLECTIVE STUDIO FLOOR GLOW
+   -------------------------------------------------------- */
+.glossyFloorReflection {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(72deg);
+  width: 360px;
+  height: 95px;
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.8;
+}
+
+.floorWeb { background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.8) 0%, rgba(59, 130, 246, 0.45) 45%, transparent 75%); }
+.floorCro { background: radial-gradient(ellipse at center, rgba(200, 243, 29, 0.85) 0%, rgba(16, 185, 129, 0.45) 45%, transparent 75%); }
+.floorSeo { background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.85) 0%, rgba(139, 92, 246, 0.45) 45%, transparent 75%); }
+.floorPaidAds { background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.85) 0%, rgba(236, 72, 153, 0.45) 45%, transparent 75%); }
+.floorSocial { background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.8) 0%, rgba(6, 182, 212, 0.45) 45%, transparent 75%); }
+.floorShortVideo { background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.85) 0%, rgba(249, 115, 22, 0.45) 45%, transparent 75%); }
+.floorAiVideo { background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.8) 0%, rgba(168, 85, 247, 0.45) 45%, transparent 75%); }
+
+.floorRing {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(74deg);
+  width: 270px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+}
+
+/* --------------------------------------------------------
+   FOREGROUND BOKEH ORBS
+   -------------------------------------------------------- */
+.bokehTopLeft {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  filter: blur(38px);
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0.55;
+  animation: bokehFloat 7s ease-in-out infinite alternate;
+}
+
+.bokehBottomRight {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  filter: blur(42px);
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0.5;
+  animation: bokehFloat 8.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes bokehFloat {
+  0% { transform: translateZ(85px) translateY(0) scale(0.9); }
+  100% { transform: translateZ(85px) translateY(-18px) scale(1.15); }
+}
+
+.dustMote {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 6;
+  animation: moteFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes moteFloat {
+  0% { transform: translateY(0) scale(0.7); opacity: 0.3; }
+  50% { opacity: 0.95; }
+  100% { transform: translateY(-25px) scale(1.3); opacity: 0.4; }
+}
+
+/* --------------------------------------------------------
+   PARALLAX STAGE & HERO CLUSTER
+   -------------------------------------------------------- */
+.parallaxTiltWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: 10;
+}
+
+.heroClusterStage {
+  position: relative;
+  width: 92%;
+  max-width: 440px;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  animation: heroBreathingMotion 7s ease-in-out infinite alternate;
+}
+
+@keyframes heroBreathingMotion {
+  0% {
+    transform: translateY(6px) scale(0.98) rotateX(3deg) rotateY(-3.5deg);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.025) rotateX(-2.5deg) rotateY(3.5deg);
+  }
+  100% {
+    transform: translateY(2px) scale(0.99) rotateX(1.5deg) rotateY(-2deg);
+  }
+}
+
+/* ========================================================
+   1. WEB DESIGN & DEVELOPMENT (HOLOGRAPHIC MACHINE)
+   ======================================================== */
+.webHoloMachine {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(34, 211, 238, 0.9);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(59, 130, 246, 0.2) 50%, rgba(168, 85, 247, 0.15) 100%);
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.6), inset 0 0 25px rgba(34, 211, 238, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.webTopBar {
+  height: 28px;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.5);
+  background: rgba(10, 4, 25, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.webDotsGroup {
+  display: flex;
+  gap: 5px;
+}
+
+.webDotItem {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22D3EE;
+  box-shadow: 0 0 6px #22D3EE;
+}
+
+.webUrlTab {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #C8F31D;
+  background: rgba(200, 243, 29, 0.12);
+  border: 1px solid rgba(200, 243, 29, 0.5);
+  padding: 1px 8px;
+  border-radius: 4px;
+  text-shadow: 0 0 6px #C8F31D;
+}
+
+.webWorkspaceBody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  padding: 10px;
+  gap: 8px;
+  position: relative;
+}
+
+.codeTerminalPanel {
+  background: rgba(9, 3, 20, 0.7);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: monospace;
+  font-size: 0.65rem;
+}
+
+.codeLine1 { color: #A855F7; text-shadow: 0 0 5px #A855F7; }
+.codeLine2 { color: #22D3EE; text-shadow: 0 0 5px #22D3EE; padding-left: 8px; }
+.codeLine3 { color: #C8F31D; text-shadow: 0 0 5px #C8F31D; padding-left: 8px; }
+.codeLine4 { color: #FFFFFF; opacity: 0.8; }
+
+.typingCursor {
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  background: #C8F31D;
+  box-shadow: 0 0 8px #C8F31D;
+  animation: cursorBlink 0.8s infinite;
+  vertical-align: middle;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.visualPreviewPanel {
+  background: rgba(9, 3, 20, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewHeroMesh {
+  height: 48px;
+  border-radius: 6px;
+  border: 1px solid rgba(200, 243, 29, 0.7);
+  background: linear-gradient(135deg, rgba(200, 243, 29, 0.3) 0%, rgba(6, 182, 212, 0.25) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0 0 8px #C8F31D;
+  position: relative;
+}
+
+.laserScanGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #C8F31D;
+  box-shadow: 0 0 10px #C8F31D, 0 0 20px #C8F31D;
+  animation: laserScanDown 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes laserScanDown {
+  0% { top: 0%; opacity: 0.5; }
+  100% { top: 100%; opacity: 1; }
+}
+
+.previewCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.previewMiniCard {
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  background: rgba(34, 211, 238, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px;
+  gap: 3px;
+}
+
+.miniCardBar {
+  height: 3px;
+  border-radius: 2px;
+  background: #22D3EE;
+  box-shadow: 0 0 5px #22D3EE;
+}
+
+/* ========================================================
+   2. CONVERSION RATE OPTIMISATION (FUNNEL REACTOR)
+   ======================================================== */
+.croReactorContainer {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.funnel3dAssembly {
+  position: relative;
+  width: 175px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  padding: 6px 0;
+}
+
+.funnelMouthTop {
+  width: 150px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #C8F31D;
+  background: radial-gradient(ellipse at center, rgba(200, 243, 29, 0.45) 0%, rgba(16, 185, 129, 0.25) 70%, transparent 100%);
+  box-shadow: 0 0 30px rgba(200, 243, 29, 0.8), inset 0 0 16px rgba(200, 243, 29, 0.5);
+  transform: rotateX(68deg) translateZ(35px);
+  position: relative;
+}
+
+.funnelMouthMid {
+  width: 95px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #10B981;
+  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.5) 0%, rgba(6, 182, 212, 0.25) 70%, transparent 100%);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.8), inset 0 0 16px rgba(16, 185, 129, 0.5);
+  transform: rotateX(68deg) translateZ(0px);
+  position: relative;
+}
+
+.funnelMouthBottom {
+  width: 50px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(200, 243, 29, 0.5) 70%, transparent 100%);
+  box-shadow: 0 0 35px #C8F31D, inset 0 0 15px #FFFFFF;
+  transform: rotateX(68deg) translateZ(-25px);
+  position: relative;
+}
+
+.funnelBeamsSvg {
+  position: absolute;
+  top: 15px;
+  width: 160px;
+  height: 170px;
+  pointer-events: none;
+}
+
+.croRainDrop {
+  position: absolute;
+  top: -5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22D3EE;
+  box-shadow: 0 0 12px #22D3EE, 0 0 20px #22D3EE;
+  animation: croRainFall 2.2s ease-in infinite;
+}
+
+@keyframes croRainFall {
+  0% { top: -10px; opacity: 0; transform: scale(0.6); }
+  30% { opacity: 1; transform: scale(1.2); }
+  65% { top: 80px; opacity: 0.6; }
+  100% { top: 100px; opacity: 0; }
+}
+
+.croRocketExit {
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C8F31D;
+  box-shadow: 0 0 16px #C8F31D, 0 0 25px #C8F31D;
+  animation: croRocketShoot 1.5s ease-out infinite;
+}
+
+@keyframes croRocketShoot {
+  0% { bottom: 25px; opacity: 0; transform: scale(0.6) translateY(0); }
+  25% { opacity: 1; transform: scale(1.4); }
+  100% { bottom: -20px; opacity: 0; transform: scale(0.8) translateY(38px); }
+}
+
+.croDialWrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: translateZ(45px);
+}
+
+.croDialOuterTrack {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px dashed #C8F31D;
+  box-shadow: 0 0 30px rgba(200, 243, 29, 0.6);
+  animation: rotateRing 8s linear infinite;
+}
+
+.croDialCoreBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(200, 243, 29, 0.45) 0%, rgba(16, 185, 129, 0.35) 100%);
+  border: 2px solid #C8F31D;
+  box-shadow: 0 0 40px rgba(200, 243, 29, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.croUpliftNum {
+  font-family: var(--font-headline, sans-serif);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 0 0 16px #C8F31D, 0 0 25px #C8F31D;
+  line-height: 1;
+}
+
+.croUpliftSub {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #C8F31D;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  text-shadow: 0 0 10px #C8F31D;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================================
+   3. SEO (HOLOGRAPHIC SONAR SCANNER & RANK TOWERS)
+   ======================================================== */
+.seoStationStage {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.seoPillarsGroup {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  transform: rotateX(15deg) rotateY(-8deg);
+}
+
+.seoPillarBar {
+  width: 30px;
+  border-radius: 6px 6px 3px 3px;
+  border: 1.5px solid rgba(168, 85, 247, 0.9);
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.55), rgba(139, 92, 246, 0.4));
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+  animation: barPulseHeight 3.5s ease-in-out infinite alternate;
+}
+
+.seoPillarBar:nth-child(1) { height: 50px; animation-delay: 0.1s; }
+.seoPillarBar:nth-child(2) { height: 80px; animation-delay: 0.3s; }
+.seoPillarBar:nth-child(3) { height: 115px; animation-delay: 0.5s; }
+.seoPillarBar:nth-child(4) {
+  height: 145px;
+  border-color: #C8F31D;
+  background: linear-gradient(to top, rgba(200, 243, 29, 0.65), rgba(168, 85, 247, 0.45));
+  box-shadow: 0 0 40px rgba(200, 243, 29, 0.9), inset 0 0 15px #C8F31D;
+  animation-delay: 0.7s;
+  position: relative;
+}
+
+.seoRankCrown {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C8F31D;
+  color: #090414;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  box-shadow: 0 0 18px #C8F31D;
+  white-space: nowrap;
+}
+
+@keyframes barPulseHeight {
+  0% { transform: scaleY(0.95); opacity: 0.85; }
+  100% { transform: scaleY(1.06); opacity: 1; }
+}
+
+.seoSonarLens {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  transform-style: preserve-3d;
+  animation: sonarFloatSweep 5s ease-in-out infinite alternate;
+  transform: translateZ(65px);
+}
+
+@keyframes sonarFloatSweep {
+  0% { top: 20px; left: 35px; transform: translateZ(65px) rotate(10deg); }
+  100% { top: 10px; left: 145px; transform: translateZ(75px) rotate(-10deg); }
+}
+
+.sonarGlassRing {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #22D3EE;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.5) 0%, rgba(168, 85, 247, 0.35) 70%);
+  box-shadow: 0 0 35px #22D3EE, inset 0 0 20px rgba(255, 255, 255, 0.7);
+  position: relative;
+}
+
+.sonarRadarSweepBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(34, 211, 238, 0.5) 0%, transparent 100%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+.sonarHandleGrip {
+  position: absolute;
+  bottom: -24px;
+  right: -16px;
+  width: 32px;
+  height: 6px;
+  border-radius: 3px;
+  background: #22D3EE;
+  box-shadow: 0 0 16px #22D3EE;
+  transform: rotate(45deg);
+}
+
+/* ========================================================
+   4. PAID ADVERTISING (BULLSEYE MATRIX)
+   ======================================================== */
+.paidTargetStage {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.concentricBullseye {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(-10deg);
+}
+
+.bullseyeRingOuter {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 2px solid #F97316;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, rgba(236, 72, 153, 0.25) 65%, transparent 100%);
+  box-shadow: 0 0 35px rgba(249, 115, 22, 0.8), inset 0 0 25px rgba(236, 72, 153, 0.5);
+}
+
+.bullseyeRingMid {
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  border: 2px dashed #EC4899;
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.85);
+  animation: rotateRing 12s linear infinite;
+  transform: translateZ(22px);
+}
+
+.bullseyeCoreNode {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(249, 115, 22, 0.7) 70%, transparent 100%);
+  box-shadow: 0 0 40px #F97316, 0 0 60px #EC4899;
+  transform: translateZ(46px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.targetLaserCrosshairs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crossLineHoriz {
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  right: -25px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #F97316, #EC4899, transparent);
+  box-shadow: 0 0 12px #F97316;
+}
+
+.crossLineVert {
+  position: absolute;
+  left: 50%;
+  top: -25px;
+  bottom: -25px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #F97316, #EC4899, transparent);
+  box-shadow: 0 0 12px #F97316;
+}
+
+.targetImpactWave {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF;
+  animation: shockwavePulse 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform: translateZ(46px);
+  pointer-events: none;
+}
+
+@keyframes shockwavePulse {
+  0% { width: 25px; height: 25px; opacity: 1; border-color: #FFFFFF; box-shadow: 0 0 25px #FFFFFF; }
+  65% { width: 180px; height: 180px; opacity: 0.6; border-color: #EC4899; box-shadow: 0 0 45px #F97316; }
+  100% { width: 230px; height: 230px; opacity: 0; }
+}
+
+.targetCometArrow {
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FFFFFF, #F97316);
+  box-shadow: 0 0 18px #F97316, 0 0 30px #EC4899;
+  transform-origin: left center;
+  animation: arrowStrike 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform: translateZ(58px);
+}
+
+@keyframes arrowStrike {
+  0% { top: 5px; left: 15px; opacity: 0; transform: rotate(45deg) scaleX(0.4); }
+  40% { opacity: 1; transform: rotate(45deg) scaleX(1.1); }
+  60% { top: 50%; left: 50%; opacity: 1; transform: rotate(45deg) scaleX(0.2); }
+  70% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ========================================================
+   5. SOCIAL MEDIA (SPINNING GLOBE & REACTION STREAM)
+   ======================================================== */
+.socialGlobeStage {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.socialSphereWire {
+  position: relative;
+  width: 175px;
+  height: 175px;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg);
+}
+
+.spherePerimeter {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid rgba(236, 72, 153, 0.95);
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(6, 182, 212, 0.3) 50%, rgba(168, 85, 247, 0.25) 80%);
+  box-shadow: 0 0 40px rgba(236, 72, 153, 0.8), inset 0 0 30px rgba(6, 182, 212, 0.6);
+}
+
+.sphereLatitude {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 65px;
+  transform: translateY(-50%) rotateX(65deg);
+  border-radius: 50%;
+  border: 2px dashed #22D3EE;
+  box-shadow: 0 0 20px #22D3EE;
+}
+
+.sphereLongitude1 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #22D3EE;
+  box-shadow: 0 0 22px #22D3EE;
+  animation: spinGlobe 12s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.sphereLongitude2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed #C8F31D;
+  box-shadow: 0 0 22px #C8F31D;
+  animation: spinGlobe 12s linear infinite reverse;
+  transform-style: preserve-3d;
+}
+
+@keyframes spinGlobe {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.liveReactionsColumn {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.streamHeart1 {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  animation: streamFlyUp 2.8s ease-in infinite;
+}
+
+.streamHeart2 {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  animation: streamFlyUp 2.8s ease-in infinite 1s;
+}
+
+.streamHeart3 {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  animation: streamFlyUp 2.8s ease-in infinite 1.8s;
+}
+
+@keyframes streamFlyUp {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  25% { opacity: 1; transform: translateY(-30px) scale(1.15); }
+  75% { opacity: 0.85; transform: translateY(-85px) scale(0.9); }
+  100% { transform: translateY(-135px) scale(0.4); opacity: 0; }
+}
+
+/* ========================================================
+   6. SHORT VIDEO PRODUCTION (CLAPPERBOARD & EQUALIZER)
+   ======================================================== */
+.videoCinemaStage {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+.clapperSlateHolo {
+  position: relative;
+  width: 165px;
+  height: 105px;
+  border-radius: 12px;
+  border: 2.5px solid #F59E0B;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.45) 0%, rgba(249, 115, 22, 0.4) 100%);
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.8), inset 0 0 25px rgba(249, 115, 22, 0.5);
+  transform-style: preserve-3d;
+  transform: translateZ(35px) rotateX(12deg) rotateY(-8deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 16px;
+}
+
+.clapperTitleText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 12px #F59E0B;
+}
+
+.clapperFpsText {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #C8F31D;
+  text-shadow: 0 0 16px #C8F31D;
+  margin-top: 3px;
+}
+
+.clapperTopStickHolo {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  width: 165px;
+  height: 28px;
+  border-radius: 6px 6px 0 0;
+  border: 2px solid #C8F31D;
+  background: repeating-linear-gradient(
+    45deg,
+    #C8F31D,
+    #C8F31D 14px,
+    #0E0422 14px,
+    #0E0422 28px
+  );
+  box-shadow: 0 0 30px rgba(200, 243, 29, 0.9);
+  transform-origin: left bottom;
+  animation: clapperSnapMovement 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes clapperSnapMovement {
+  0%, 75% { transform: rotateZ(-26deg); }
+  80% { transform: rotateZ(0deg); }
+  85% { transform: rotateZ(-4deg); }
+  90% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(-26deg); }
+}
+
+.clapperBurstFlash {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 0 45px #FFFFFF, 0 0 70px #C8F31D;
+  opacity: 0;
+  animation: burstFlashAnim 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes burstFlashAnim {
+  0%, 79% { opacity: 0; }
+  80% { opacity: 1; transform: scaleY(2.2); }
+  85% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.audioEqualizerHolo {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 26px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(14, 4, 34, 0.85);
+  border: 1.5px solid rgba(245, 158, 11, 0.8);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  z-index: 20;
+}
+
+.eqBarItem {
+  width: 4px;
+  border-radius: 2px;
+  background: #C8F31D;
+  box-shadow: 0 0 6px #C8F31D;
+  animation: eqBounceAnim 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes eqBounceAnim {
+  0% { height: 4px; }
+  100% { height: 22px; }
+}
+
+/* ========================================================
+   7. AI VIDEO PRODUCTION: HOLOGRAPHIC AI VIDEO CREATION STUDIO
+   Sci-fi HUD, live prompt bar, pulsating neural core orb,
+   live video keyframe cards, synthesis progress timeline
+   ======================================================== */
+.aiVideoStudioStage {
+  position: relative;
+  width: 320px;
+  height: 215px;
+  border-radius: 14px;
+  border: 2px solid #22D3EE;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25) 0%, rgba(168, 85, 247, 0.25) 50%, rgba(9, 3, 22, 0.85) 100%);
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.7), inset 0 0 30px rgba(168, 85, 247, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform: translateZ(25px);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 12px;
+}
+
+/* Top Sci-Fi HUD Header */
+.aiStudioTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.4);
+  padding-bottom: 6px;
+}
+
+.aiStatusDotGroup {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.aiPulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #C8F31D;
+  box-shadow: 0 0 8px #C8F31D;
+  animation: dotPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
+.aiEngineText {
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #22D3EE;
+  text-shadow: 0 0 8px #22D3EE;
+}
+
+.aiFpsPill {
+  font-family: monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #C8F31D;
+  background: rgba(200, 243, 29, 0.15);
+  border: 1px solid rgba(200, 243, 29, 0.6);
+  padding: 1px 7px;
+  border-radius: 4px;
+  text-shadow: 0 0 6px #C8F31D;
+}
+
+/* Live AI Prompt Bar with Blinking Cursor */
+.aiPromptBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 2, 20, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: monospace;
+  font-size: 0.64rem;
+  margin: 4px 0;
+  color: #FFFFFF;
+}
+
+.aiPromptText {
+  color: #FFFFFF;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Main Generative Canvas: Neural Core Orb + Video Frame Strip */
+.aiCanvasBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  position: relative;
+}
+
+/* Central Pulsating 3D Neural Core Orb */
+.aiCoreOrbWrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.aiCoreOrb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFFFF 0%, #22D3EE 40%, #A855F7 80%);
+  box-shadow: 0 0 25px #22D3EE, 0 0 45px #A855F7;
+  animation: orbBreathe 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes orbBreathe {
+  0% { transform: scale(0.85); box-shadow: 0 0 20px #22D3EE, 0 0 35px #A855F7; }
+  100% { transform: scale(1.15); box-shadow: 0 0 35px #22D3EE, 0 0 55px #A855F7; }
+}
+
+.aiCoreOrbitRing1 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed #C8F31D;
+  box-shadow: 0 0 14px #C8F31D;
+  animation: rotateRing 8s linear infinite;
+}
+
+.aiCoreOrbitRing2 {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 211, 238, 0.8);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.5);
+  animation: rotateRing 12s linear infinite reverse;
+}
+
+.aiCoreText {
+  position: absolute;
+  font-family: monospace;
+  font-size: 0.58rem;
+  font-weight: 900;
+  color: #090414;
+  background: #C8F31D;
+  padding: 1px 4px;
+  border-radius: 3px;
+  bottom: -4px;
+  box-shadow: 0 0 8px #C8F31D;
+}
+
+/* Dynamic Video Keyframes Strip forming in real-time */
+.aiKeyframesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aiKeyframeCard {
+  border-radius: 6px;
+  border: 1.5px solid rgba(34, 211, 238, 0.7);
+  background: rgba(8, 2, 20, 0.8);
+  padding: 3px;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+}
+
+.keyframeThumb1 {
+  height: 38px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.5) 0%, rgba(168, 85, 247, 0.4) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.keyframeThumb2 {
+  height: 38px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(200, 243, 29, 0.45) 0%, rgba(6, 182, 212, 0.4) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.keyframeTime {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #C8F31D;
+  text-shadow: 0 0 6px #C8F31D;
+}
+
+/* Bottom Render Progress Timeline */
+.aiTimelineBar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(34, 211, 238, 0.4);
+  padding-top: 6px;
+}
+
+.aiProgressFill {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.aiProgressGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 92%;
+  background: linear-gradient(90deg, #22D3EE, #C8F31D);
+  box-shadow: 0 0 10px #C8F31D;
+  animation: progressPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes progressPulse {
+  0% { width: 85%; }
+  100% { width: 95%; }
+}
+
+.aiTimelineMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+/* ========================================================
+   WIDE SATELLITE PILLS (SPREAD WIDE, BOBBING AT UNIQUE PHASES)
+   ======================================================== */
+.satellitePill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 9999px;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  transform-style: preserve-3d;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  will-change: transform;
+}
+
+.satSizeLarge { padding: 8px 18px; font-size: 0.9rem; }
+.satSizeMedium { padding: 6px 14px; font-size: 0.8rem; }
+.satSizeSmall { padding: 4px 10px; font-size: 0.72rem; }
+
+.wobblePhase1 { animation: wobbleAnim1 3.2s ease-in-out infinite alternate; }
+.wobblePhase2 { animation: wobbleAnim2 4.1s ease-in-out infinite alternate; }
+.wobblePhase3 { animation: wobbleAnim3 5.3s ease-in-out infinite alternate; }
+.wobblePhase4 { animation: wobbleAnim4 6.2s ease-in-out infinite alternate; }
+
+@keyframes wobbleAnim1 {
+  0% { transform: translateZ(var(--z-depth, 55px)) translateY(0) rotate(var(--rot, 0deg)); }
+  100% { transform: translateZ(var(--z-depth, 55px)) translateY(-15px) rotate(calc(var(--rot, 0deg) + 4deg)); }
+}
+
+@keyframes wobbleAnim2 {
+  0% { transform: translateZ(var(--z-depth, 65px)) translateY(0) rotate(var(--rot, 0deg)); }
+  100% { transform: translateZ(var(--z-depth, 65px)) translateY(-17px) rotate(calc(var(--rot, 0deg) - 4deg)); }
+}
+
+@keyframes wobbleAnim3 {
+  0% { transform: translateZ(var(--z-depth, 75px)) translateY(0) rotate(var(--rot, 0deg)); }
+  100% { transform: translateZ(var(--z-depth, 75px)) translateY(15px) rotate(calc(var(--rot, 0deg) + 5deg)); }
+}
+
+@keyframes wobbleAnim4 {
+  0% { transform: translateZ(var(--z-depth, 50px)) translateY(0) rotate(var(--rot, 0deg)); }
+  100% { transform: translateZ(var(--z-depth, 50px)) translateY(-12px) rotate(calc(var(--rot, 0deg) - 3deg)); }
+}
+
+.colorCyan {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.92) 0%, rgba(59, 130, 246, 0.82) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.colorLime {
+  background: linear-gradient(135deg, rgba(200, 243, 29, 0.95) 0%, rgba(16, 185, 129, 0.85) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #090414;
+  box-shadow: 0 10px 28px rgba(200, 243, 29, 0.85), inset 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.colorPurple {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.92) 0%, rgba(139, 92, 246, 0.82) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(168, 85, 247, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.colorOrange {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.94) 0%, rgba(236, 72, 153, 0.82) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(249, 115, 22, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.colorPink {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.94) 0%, rgba(168, 85, 247, 0.82) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(236, 72, 153, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.colorAmber {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.95) 0%, rgba(249, 115, 22, 0.85) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(245, 158, 11, 0.75), inset 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.circleNodeBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}

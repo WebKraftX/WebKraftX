@@ -1,0 +1,784 @@
+/* ========================================================
+   WEBKRAFTX SERVICE DETAIL PAGE — DARK PURPLE IDENTITY
+   Palette:
+   - Base Background: #0B0416
+   - Secondary Surfaces: rgba(28, 16, 48, 0.7)
+   - Primary Accent: #783DE0
+   - Secondary Accent / Shimmer: #A66BFF / #C7A7FF
+   - Headings: #F8F5FF
+   - Body Text: #B8AEC8
+   - Borders: rgba(199, 167, 255, 0.14)
+   ======================================================== */
+
+.pageRoot {
+  background-color: #0B0416;
+  color: #B8AEC8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  padding-top: 110px;
+}
+
+/* Background Ambient Lighting */
+.ambientRadialGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(120, 61, 224, 0.18) 0%, rgba(166, 107, 255, 0.06) 50%, transparent 75%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientMidGlow {
+  position: absolute;
+  top: 45%;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(166, 107, 255, 0.1) 0%, transparent 70%);
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem) 6rem clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Back to Home Button Row */
+.backButtonRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.backToHomeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(120, 61, 224, 0.14);
+  color: #C7A7FF;
+  border: 1px solid rgba(166, 107, 255, 0.3);
+  border-radius: 9999px;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(120, 61, 224, 0.15);
+}
+
+.backToHomeBtn:hover {
+  background: #783DE0;
+  color: #FFFFFF;
+  border-color: #783DE0;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 18px rgba(120, 61, 224, 0.4);
+}
+
+/* ========================================================
+   1. HERO SECTION
+   ======================================================== */
+.heroSection {
+  position: relative;
+  margin: 1.5rem 0 clamp(3.5rem, 6vw, 5rem) 0;
+  max-width: 940px;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumbNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #A397B8;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbLink {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #C7A7FF;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumbLink:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.breadcrumbSep {
+  color: rgba(199, 167, 255, 0.4);
+}
+
+.breadcrumbCurrent {
+  color: #F8F5FF;
+  font-weight: 600;
+}
+
+/* Eyebrow Label */
+.heroDivisionPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(120, 61, 224, 0.16);
+  border: 1px solid rgba(166, 107, 255, 0.24);
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C7A7FF;
+  margin-bottom: 1.5rem;
+}
+
+.divisionDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #A66BFF;
+  box-shadow: 0 0 8px #A66BFF;
+}
+
+/* Service Headline */
+.heroHeading {
+  font-family: var(--font-headline, sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #F8F5FF;
+  margin: 0 0 1.5rem 0;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.wordInner {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* Accent Word Shimmer */
+.shimmerWord {
+  background: linear-gradient(135deg, #FFFFFF 0%, #C7A7FF 40%, #A66BFF 75%, #783DE0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.heroLead {
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.68;
+  color: #D3C9E3;
+  margin: 0 0 1.25rem 0;
+  max-width: 820px;
+}
+
+.heroDeepDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #A397B8;
+  margin: 0 0 2.25rem 0;
+  max-width: 780px;
+}
+
+/* Hero Action CTAs */
+.heroActionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.primaryCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.95rem 2rem;
+  min-height: 52px;
+  background: linear-gradient(135deg, #783DE0 0%, #9047FF 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(120, 61, 224, 0.35);
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+
+.primaryCtaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(120, 61, 224, 0.45);
+  background: linear-gradient(135deg, #682ECF 0%, #823BE8 100%);
+}
+
+.primaryCtaBtn:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.ctaArrow {
+  transition: transform 0.2s ease;
+}
+
+.secondaryWhatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.95rem 1.8rem;
+  min-height: 52px;
+  background: rgba(28, 16, 48, 0.7);
+  border: 1px solid rgba(199, 167, 255, 0.2);
+  border-radius: 9999px;
+  color: #E2D7F3;
+  font-family: inherit;
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.secondaryWhatsappBtn:hover {
+  background: rgba(45, 26, 77, 0.85);
+  border-color: #A66BFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   2. OUTCOME STRIP
+   ======================================================== */
+.outcomeStripSection {
+  margin-bottom: clamp(4rem, 7vw, 5.5rem);
+}
+
+.outcomeStripCard {
+  background: rgba(28, 16, 48, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(199, 167, 255, 0.16);
+  border-radius: 20px;
+  padding: clamp(1.8rem, 3vw, 2.4rem);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.outcomeItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.outcomeItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -1rem;
+  width: 1px;
+  height: 80%;
+  background: rgba(199, 167, 255, 0.12);
+}
+
+.outcomeMetric {
+  font-family: var(--font-headline, sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: #C7A7FF;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.outcomeLabel {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.outcomeDesc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #A397B8;
+  margin: 0;
+}
+
+/* ========================================================
+   SECTION COMMON STYLES
+   ======================================================== */
+.sectionHeader {
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.sectionLabel {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C7A7FF;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-headline, sans-serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #F8F5FF;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionSubline {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #B8AEC8;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* ========================================================
+   3. WHAT'S INCLUDED (DELIVERABLES GRID)
+   ======================================================== */
+.deliverablesSection {
+  margin-bottom: clamp(4.5rem, 8vw, 6rem);
+}
+
+.deliverablesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.deliverableCard {
+  background: rgba(28, 16, 48, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(199, 167, 255, 0.14);
+  border-radius: 18px;
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.deliverableCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(166, 107, 255, 0.4);
+  background: rgba(38, 22, 64, 0.75);
+  box-shadow: 0 16px 36px rgba(120, 61, 224, 0.18);
+}
+
+.deliverableIconTile {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(120, 61, 224, 0.2);
+  border: 1px solid rgba(166, 107, 255, 0.25);
+  color: #C7A7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: all 0.22s ease;
+}
+
+.deliverableCard:hover .deliverableIconTile {
+  background: #783DE0;
+  color: #FFFFFF;
+  border-color: #783DE0;
+}
+
+.deliverableTitle {
+  font-family: var(--font-headline, sans-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  line-height: 1.3;
+  margin: 0 0 0.6rem 0;
+}
+
+.deliverableDesc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #B8AEC8;
+  margin: 0;
+}
+
+/* ========================================================
+   4. HOW WE EXECUTE (STEP TIMELINE)
+   ======================================================== */
+.executionSection {
+  margin-bottom: clamp(4.5rem, 8vw, 6rem);
+}
+
+.executionStepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.stepCard {
+  background: rgba(28, 16, 48, 0.6);
+  border: 1px solid rgba(199, 167, 255, 0.12);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(166, 107, 255, 0.35);
+}
+
+.stepHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.15rem;
+}
+
+.stepNumber {
+  font-family: var(--font-headline, monospace);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #C7A7FF;
+}
+
+.stepPhaseBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A66BFF;
+  background: rgba(166, 107, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(166, 107, 255, 0.2);
+}
+
+.stepTitle {
+  font-family: var(--font-headline, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  line-height: 1.3;
+  margin: 0 0 0.55rem 0;
+}
+
+.stepDesc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #A397B8;
+  margin: 0;
+}
+
+/* ========================================================
+   5. WHO IT'S FOR
+   ======================================================== */
+.whoSection {
+  margin-bottom: clamp(4.5rem, 8vw, 6rem);
+}
+
+.whoScenariosList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.scenarioCard {
+  background: rgba(28, 16, 48, 0.65);
+  border: 1px solid rgba(199, 167, 255, 0.14);
+  border-radius: 18px;
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.scenarioCheckIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(120, 61, 224, 0.2);
+  border: 1px solid rgba(166, 107, 255, 0.3);
+  color: #C7A7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.scenarioText {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #D3C9E3;
+  margin: 0;
+}
+
+/* ========================================================
+   6. RELATED SERVICES
+   ======================================================== */
+.relatedSection {
+  margin-bottom: clamp(4.5rem, 8vw, 6rem);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.relatedCard {
+  background: rgba(28, 16, 48, 0.65);
+  border: 1px solid rgba(199, 167, 255, 0.14);
+  border-radius: 18px;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  border-color: #A66BFF;
+  background: rgba(38, 22, 64, 0.8);
+  box-shadow: 0 16px 36px rgba(120, 61, 224, 0.2);
+}
+
+.relatedCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.relatedIconTile {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(120, 61, 224, 0.2);
+  color: #C7A7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.relatedArrow {
+  color: #A66BFF;
+  transition: transform 0.2s ease;
+}
+
+.relatedCard:hover .relatedArrow {
+  transform: translateX(4px);
+  color: #FFFFFF;
+}
+
+.relatedTitle {
+  font-family: var(--font-headline, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F8F5FF;
+  margin: 0 0 0.5rem 0;
+}
+
+.relatedDesc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #A397B8;
+  margin: 0;
+}
+
+/* ========================================================
+   7. FINAL CTA BLOCK
+   ======================================================== */
+.serviceCtaCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(32, 17, 58, 0.85) 0%, rgba(20, 10, 38, 0.95) 100%);
+  border: 1px solid rgba(199, 167, 255, 0.22);
+  border-radius: 24px;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.ctaCardGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(120, 61, 224, 0.28) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.ctaCardContent {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.ctaCardLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C7A7FF;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.ctaCardHeading {
+  font-family: var(--font-headline, sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #F8F5FF;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+}
+
+.ctaCardDesc {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #B8AEC8;
+  margin: 0 0 2rem 0;
+}
+
+.ctaCardButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN
+   ======================================================== */
+@media (max-width: 1024px) {
+  .deliverablesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .executionStepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .whoScenariosList {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageRoot {
+    padding-top: 95px;
+  }
+
+  .outcomeGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .outcomeItem:not(:last-child)::after {
+    display: none;
+  }
+
+  .deliverablesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .executionStepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActionsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryCtaBtn,
+  .secondaryWhatsappBtn {
+    justify-content: center;
+  }
+}
+
+/* ========================================================
+   REDUCED MOTION
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .shimmerWord {
+    animation: none !important;
+  }
+
+  .primaryCtaBtn:hover,
+  .secondaryWhatsappBtn:hover,
+  .deliverableCard:hover,
+  .stepCard:hover,
+  .relatedCard:hover {
+    transform: none !important;
+  }
+}

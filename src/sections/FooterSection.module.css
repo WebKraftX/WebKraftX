@@ -1,0 +1,344 @@
+.footer {
+  background: linear-gradient(180deg, #090514 0%, #05020D 100%);
+  color: #F8FAFC;
+  padding: 5rem 0 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* 4-Column Grid: Aligned to Same Top Line */
+.columnsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.75rem;
+  align-items: flex-start;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 480px) {
+  .columnsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .columnsGrid {
+    grid-template-columns: 1.35fr 1fr 1fr 1.25fr;
+    gap: 2.75rem;
+  }
+}
+
+/* Column 1: Brand Info */
+.colBrand {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.brandDesc {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #94A3B8;
+  margin: 0 0 1.35rem 0;
+}
+
+.locationItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #94A3B8;
+  margin-bottom: 1.15rem;
+}
+
+.locationIcon {
+  color: #A78BFA;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.availabilityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.78rem;
+  color: #10B981;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+/* Columns 2 & 3: Services & Studio */
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.colHeader {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #E2E8F0;
+  letter-spacing: 1.5px;
+  margin: 0 0 0.85rem 0;
+  text-transform: uppercase;
+}
+
+/* Links: Soft lavender, NO blue, NO underline, hover transition */
+.linkBtn {
+  background: none;
+  border: none;
+  color: #C4B5FD;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+  padding: 3px 0;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.linkBtn:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.linkBtn:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Column 4: Contact & Connect */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contactItemLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #E2E8F0;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.86rem;
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.contactItemLink:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.contactItemLink:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.contactIconChip {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contactItemLink:hover .contactIconChip {
+  transform: scale(1.08);
+}
+
+/* WhatsApp: Teal-Green */
+.whatsappChip {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(5, 150, 105, 0.42));
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #34D399;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+}
+
+/* Email: Pink */
+.emailChip {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(219, 39, 119, 0.42));
+  border: 1px solid rgba(236, 72, 153, 0.45);
+  color: #F472B6;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.25);
+}
+
+/* Phone: Violet */
+.phoneChip {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(109, 40, 217, 0.42));
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  color: #C4B5FD;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
+}
+
+/* Notice text */
+.responseNotice {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(196, 181, 253, 0.12);
+}
+
+.responseNotice p {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  margin: 0;
+}
+
+/* Bottom Bar: Copyright (Left), Social Icons (Center/Right), Back to top (Far Right) */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyText {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.82rem;
+  color: #94A3B8;
+}
+
+/* Social Icons in Bottom Bar */
+.socialIconsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialGlassChip {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 181, 253, 0.18);
+  color: #C4B5FD;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.socialGlassChip:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: #A855F7;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+}
+
+.socialGlassChip:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+.bottomActions {
+  display: flex;
+  align-items: center;
+}
+
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 181, 253, 0.2);
+  color: #C4B5FD;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backToTopBtn:hover {
+  background: rgba(168, 85, 247, 0.16);
+  border-color: #A855F7;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+}
+
+.backToTopBtn:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 639px) {
+  .columnsGrid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .linkBtn,
+  .contactItemLink {
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .bottomActions {
+    width: 100%;
+  }
+
+  .backToTopBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

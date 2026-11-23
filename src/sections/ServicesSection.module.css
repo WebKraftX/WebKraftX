@@ -1,0 +1,312 @@
+/* ========================================================
+   SERVICES SECTION — DEEP SPACE BLACK THEME (#06020E)
+   Total 9 Service Cards (3x3 Grid, Real HTML, Non-Clickable)
+   ======================================================== */
+
+.servicesSection {
+  background-color: #06020E;
+  color: #F8FAFC;
+  position: relative;
+  z-index: 10;
+  padding: 6rem 0 6.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle decorative ambient lighting */
+.cornerPurpleTint {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(217, 70, 239, 0.04) 40%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Space sparkles */
+.spaceSparkle1, .spaceSparkle2 {
+  position: absolute;
+  color: #C084FC;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+  font-size: 16px;
+  will-change: transform, opacity;
+}
+
+.spaceSparkle1 {
+  top: 80px;
+  left: 7%;
+  animation: sparkleTwinkle 3.2s ease-in-out infinite alternate;
+}
+
+.spaceSparkle2 {
+  top: 110px;
+  right: 8%;
+  font-size: 14px;
+  animation: sparkleTwinkle 3.6s ease-in-out 1.2s infinite alternate;
+}
+
+@keyframes sparkleTwinkle {
+  0% {
+    transform: scale(0.8) rotate(-6deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2) rotate(4deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.6));
+  }
+  100% {
+    transform: scale(0.8) rotate(-6deg);
+    opacity: 0.3;
+  }
+}
+
+.innerContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3.5vw, 3rem);
+}
+
+/* --------------------------------------------------------
+   1. SECTION HEADER — CENTERED & EDITORIAL ON BLACK
+   -------------------------------------------------------- */
+.headerCenter {
+  position: relative;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto clamp(3rem, 5vw, 4.25rem) auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C084FC;
+  margin-bottom: 0.85rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-headline, sans-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  margin: 0 0 1.25rem 0;
+  text-wrap: balance;
+}
+
+.headlineRow {
+  display: block;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.wordInner {
+  display: inline-block;
+}
+
+.teamAccent {
+  position: relative;
+  background: linear-gradient(135deg, #C084FC 20%, #F472B6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 4px;
+}
+
+.handDrawnVector {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 10px;
+  pointer-events: none;
+}
+
+.sectionSubline {
+  font-family: var(--font-body, sans-serif);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.65;
+  color: #94A3B8;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------
+   2. 9 SERVICE CARDS (3x3 Balanced Grid on Black)
+   -------------------------------------------------------- */
+.nineCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .nineCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .nineCardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.cardContainer {
+  height: 100%;
+  display: flex;
+}
+
+/* Sleek Dark Glass Surface with No White Card Frame */
+.cardSurface {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.cardSurface:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(168, 85, 247, 0.12);
+}
+
+/* 3D Illustration Area */
+.illustrationWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.cardIllustration {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.cardSurface:hover .cardIllustration {
+  transform: scale(1.02);
+}
+
+/* Real HTML Card Content */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--card-accent, #C084FC);
+  margin-bottom: 0.65rem;
+}
+
+.categoryDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--card-accent, #C084FC);
+  box-shadow: 0 0 8px var(--card-accent, #C084FC);
+}
+
+.cardTitle {
+  font-family: var(--font-headline, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.6rem 0;
+}
+
+.desktopTitle {
+  display: inline;
+}
+
+.mobileTitle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopTitle {
+    display: none;
+  }
+  .mobileTitle {
+    display: inline;
+  }
+  .cardDesc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.cardDesc {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin: 0 0 1.25rem 0;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tagChip {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #C4B5FD;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 181, 253, 0.14);
+  padding: 4px 9px;
+  border-radius: 6px;
+}

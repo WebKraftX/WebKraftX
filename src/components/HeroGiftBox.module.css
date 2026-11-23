@@ -1,0 +1,273 @@
+/* ========================================================
+   HERO GIFT BOX STAGE
+   - Central box video (opens once on load)
+   - 9 Orbiting 3D Service Cards emerging when video finishes
+   ======================================================== */
+
+.heroGiftboxStage {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Ambient Radial Glow behind the box */
+.stageAmbientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(166, 107, 255, 0.28) 0%,
+    rgba(120, 61, 224, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 10;
+  animation: stageGlowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes stageGlowPulse {
+  0% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 1.15;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Center 3D Box Video Container */
+.videoBoxWrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  pointer-events: auto;
+}
+
+.boxVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75));
+  display: block;
+}
+
+/* Open Light Burst Puff */
+.openLightBurst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(240, 171, 252, 0.9) 0%,
+    rgba(168, 85, 247, 0.5) 50%,
+    transparent 70%
+  );
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: 45;
+}
+
+/* 3D Orbit Track Layer */
+.orbitTrack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 55;
+}
+
+/* Individual Orbiting Card */
+.orbitCard {
+  position: absolute;
+  width: 145px;
+  height: 98px;
+  border-radius: 14px;
+  background: rgba(20, 10, 34, 0.94);
+  border: 1.5px solid rgba(166, 107, 255, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65),
+              0 0 16px rgba(120, 61, 224, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.orbitCardHovered {
+  border-color: #F0ABFC !important;
+  box-shadow: 0 18px 40px rgba(120, 61, 224, 0.75),
+              0 0 30px rgba(240, 171, 252, 0.55) !important;
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardGlassGleam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Tooltip Badge on Hover */
+.cardHoverTooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(28, 14, 48, 0.96);
+  border: 1px solid rgba(166, 107, 255, 0.6);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 150;
+}
+
+.tooltipArrow {
+  color: #F0ABFC;
+}
+
+/* Replay Button */
+.replayButton {
+  position: absolute;
+  bottom: 8px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30, 15, 52, 0.85);
+  border: 1px solid rgba(166, 107, 255, 0.35);
+  color: #E9D5FF;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.replayButton:hover {
+  background: rgba(120, 61, 224, 0.4);
+  border-color: #A66BFF;
+  color: #FFFFFF;
+}
+
+.replayIcon {
+  color: #A66BFF;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN
+   ======================================================== */
+@media (max-width: 900px) {
+  .heroGiftboxStage {
+    max-width: 500px;
+    height: 460px;
+  }
+
+  .videoBoxWrapper {
+    width: 270px;
+    height: 270px;
+  }
+
+  .orbitCard {
+    width: 125px;
+    height: 84px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroGiftboxStage {
+    height: 380px;
+  }
+
+  .videoBoxWrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orbitCard {
+    width: 105px;
+    height: 72px;
+    border-radius: 10px;
+  }
+
+  .cardHoverTooltip {
+    display: none;
+  }
+
+  .replayButton {
+    bottom: 2px;
+    right: 8px;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  .stageAmbientGlow {
+    animation: none !important;
+  }
+
+  .orbitCard {
+    transition: none !important;
+  }
+}

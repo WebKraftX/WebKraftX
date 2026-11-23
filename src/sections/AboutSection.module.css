@@ -1,0 +1,1638 @@
+/* ========================================================
+   ABOUT US SECTION — LIGHT CREAM BACKGROUND WITH LAVENDER
+   Theme: #FAF6EF (Light warm cream base) + Lavender (#EFE6FC, #E5D5F9, #7C3AED)
+   Founder portrait: Studio light backdrop (#F5F6F9)
+   ======================================================== */
+
+.aboutSection {
+  position: relative;
+  background-color: #FAF6EF;
+  color: #1A0B2E;
+  margin-top: -54px;
+  padding: 4.5rem 0 6rem;
+  overflow: visible;
+  z-index: 10;
+  box-shadow: 0 -22px 55px rgba(0, 0, 0, 0.32);
+  transform-origin: center top;
+  will-change: transform;
+}
+
+/* 1. Curved Architectural Seam & Breathing Lavender Edge Glow */
+.curvedSeamContainer {
+  position: absolute;
+  top: -53px;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.curvedSeamSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* 3. Soft Breathing Lavender Edge Glow along the transition seam */
+.edgeGlowLine {
+  animation: edgeGlowBreathe 5.8s ease-in-out infinite alternate;
+  will-change: opacity, filter;
+}
+
+@keyframes edgeGlowBreathe {
+  0% {
+    opacity: 0.45;
+    filter: drop-shadow(0 -1px 4px rgba(192, 132, 252, 0.45));
+  }
+
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 -2px 12px rgba(192, 132, 252, 0.85)) drop-shadow(0 -4px 25px rgba(168, 85, 247, 0.6));
+  }
+
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 -1px 6px rgba(192, 132, 252, 0.5));
+  }
+}
+
+/* Reduced motion support for edge glow and seam transitions */
+@media (prefers-reduced-motion: reduce) {
+  .aboutSection {
+    margin-top: -38px;
+    box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.2);
+    will-change: auto;
+  }
+
+  .edgeGlowLine {
+    animation: none;
+    opacity: 0.75;
+  }
+
+  .flightLineTrack {
+    transition: none;
+  }
+
+  .planeWrapperActive {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Subtle organic grain texture overlay */
+.grainOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.innerContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ========================================================
+   1. STORY SECTION (RICHER LAVENDER PANEL)
+   ======================================================== */
+.storyPanelWrapper {
+  position: relative;
+  background: linear-gradient(135deg, #EFE6FC 0%, #E5D5F9 100%);
+  border-radius: 28px;
+  border: 1.5px solid rgba(147, 51, 234, 0.28);
+  padding: clamp(2.5rem, 4.5vw, 4.5rem) clamp(2rem, 4vw, 4rem);
+  box-shadow: 0 20px 45px rgba(124, 58, 237, 0.1);
+  overflow: hidden;
+}
+
+/* Soft radial lavender studio light glow from top-left */
+.storyStudioLightGlow {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 750px;
+  height: 650px;
+  background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.15) 0%, rgba(199, 167, 255, 0.08) 45%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.storyGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.storyLeftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.editorialEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7C3AED;
+  margin-bottom: 1.4rem;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #7C3AED;
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+  display: inline-block;
+}
+
+.storyHeadline {
+  font-family: var(--font-headline);
+  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #1A0B2E;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.wordInner {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.lavenderText {
+  color: #7C3AED;
+  position: relative;
+  display: inline-block;
+}
+
+.storyBodyText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-bottom: 2.2rem;
+  max-width: 580px;
+}
+
+.storyParagraph {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  line-height: 1.72;
+  color: #43325B;
+  margin: 0;
+}
+
+.locationIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6D28D9;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.08);
+}
+
+.locationPinDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+/* ========================================================
+   2. RIGHT SIDE: 3D DIGITAL SOLUTIONS & EXPERIENCE ARTWORK
+   Asset: 3D master isometric composition with UI, mobile & badges
+   ======================================================== */
+.compositionStageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Unified floating 3D container */
+.composition3dScene {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: unifiedFloat 6.5s ease-in-out infinite alternate;
+}
+
+@keyframes unifiedFloat {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(7px);
+  }
+}
+
+.about3dCompositionImg {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 20px 45px rgba(124, 58, 237, 0.18)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.08));
+  transition: filter 0.4s ease, transform 0.4s ease;
+  will-change: transform, filter;
+  transform: scale(1.05);
+}
+
+.compositionStageWrapper:hover .about3dCompositionImg {
+  filter: drop-shadow(0 28px 55px rgba(124, 58, 237, 0.28)) drop-shadow(0 0 32px rgba(199, 165, 245, 0.4));
+  transform: scale(1.08);
+}
+
+/* Background Subtle Design Grid & Wireframe Coordinates */
+.designGridSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridCrosshair {
+  font-family: monospace;
+  font-size: 11px;
+  fill: #C7A5F5;
+  opacity: 0.45;
+  user-select: none;
+}
+
+.gridCoordinateTag {
+  font-family: monospace;
+  font-size: 9px;
+  fill: #762FE0;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* Connecting Architectural Vector Spline */
+.vectorConnectingSpline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- 1. LAYERED WEBSITE INTERFACE FRAGMENT (DESKTOP) --- */
+.desktopInterfaceFragment {
+  position: absolute;
+  top: 35px;
+  left: 10px;
+  width: 250px;
+  height: 175px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(199, 165, 245, 0.45);
+  box-shadow: 0 20px 45px rgba(84, 35, 168, 0.12), 0 4px 12px rgba(84, 35, 168, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 3;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(-16deg) rotateZ(3deg);
+  overflow: hidden;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Browser top bar */
+.browserTopBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(199, 165, 245, 0.25);
+}
+
+.browserDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C7A5F5;
+  opacity: 0.7;
+}
+
+.browserUrlPill {
+  margin-left: 6px;
+  height: 9px;
+  width: 95px;
+  border-radius: 4px;
+  background: #EEE5FA;
+}
+
+/* Desktop Header skeleton */
+.desktopHeaderSkeleton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.desktopLogoMark {
+  width: 22px;
+  height: 7px;
+  border-radius: 3px;
+  background: #762FE0;
+}
+
+.desktopNavPills {
+  display: flex;
+  gap: 5px;
+}
+
+.navPillItem {
+  width: 20px;
+  height: 5px;
+  border-radius: 2px;
+  background: #EEE5FA;
+}
+
+/* Desktop Hero layout */
+.desktopHeroLayout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 8px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.desktopHeroTextSide {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.heroSkeletonTitle1 {
+  height: 8px;
+  width: 85%;
+  border-radius: 4px;
+  background: #5423A8;
+}
+
+.heroSkeletonTitle2 {
+  height: 8px;
+  width: 65%;
+  border-radius: 4px;
+  background: #762FE0;
+}
+
+.heroSkeletonSubtext {
+  height: 5px;
+  width: 95%;
+  border-radius: 2px;
+  background: #EEE5FA;
+  margin-top: 2px;
+}
+
+.desktopHeroCtaBtn {
+  margin-top: 5px;
+  width: 48px;
+  height: 12px;
+  border-radius: 4px;
+  background: #762FE0;
+  box-shadow: 0 2px 6px rgba(118, 47, 224, 0.35);
+}
+
+.desktopHeroMediaCard {
+  height: 52px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #EEE5FA 0%, #C7A5F5 100%);
+  border: 1px solid rgba(199, 165, 245, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mediaInnerFacet {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(84, 35, 168, 0.15);
+}
+
+/* Desktop Footer cards row */
+.desktopCardsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.desktopMiniFeatureCard {
+  height: 24px;
+  border-radius: 5px;
+  background: #F8F4FD;
+  border: 1px solid rgba(199, 165, 245, 0.25);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+
+.miniCardLine1 {
+  height: 4px;
+  width: 65%;
+  border-radius: 2px;
+  background: #762FE0;
+}
+
+.miniCardLine2 {
+  height: 3px;
+  width: 45%;
+  border-radius: 2px;
+  background: #C7A5F5;
+}
+
+/* --- 2. CENTRAL FLOATING GEOMETRIC SCULPTURE --- */
+.centralSculptureAnchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 160px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sculptureSvg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 18px 30px rgba(84, 35, 168, 0.25));
+  animation: sculptureSlowTilt 8s ease-in-out infinite alternate;
+}
+
+@keyframes sculptureSlowTilt {
+  0% {
+    transform: rotate(-3deg) scale(0.97);
+  }
+
+  100% {
+    transform: rotate(3deg) scale(1.03);
+  }
+}
+
+/* Soft shadow beneath central sculpture */
+.sculptureFloorShadow {
+  position: absolute;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(84, 35, 168, 0.2) 0%, transparent 70%);
+  filter: blur(6px);
+  z-index: 2;
+}
+
+/* --- 3. SMALLER MOBILE APPLICATION SCREEN --- */
+.mobileAppFragment {
+  position: absolute;
+  bottom: 25px;
+  right: 18px;
+  width: 118px;
+  height: 196px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 2px solid #5423A8;
+  box-shadow: 0 25px 50px rgba(84, 35, 168, 0.18), 0 6px 16px rgba(84, 35, 168, 0.08);
+  z-index: 6;
+  transform-style: preserve-3d;
+  transform: rotateX(12deg) rotateY(16deg) rotateZ(-3deg);
+  overflow: hidden;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Mobile top notch */
+.mobileNotchSpeaker {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: #5423A8;
+  margin: 0 auto 4px auto;
+}
+
+/* Mobile App Header */
+.mobileAppHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.mobileAppTitle {
+  width: 28px;
+  height: 6px;
+  border-radius: 3px;
+  background: #5423A8;
+}
+
+.mobileAppIcon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #762FE0;
+}
+
+/* Mobile Featured Card */
+.mobileFeaturedCard {
+  height: 52px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #EEE5FA 0%, #C7A5F5 100%);
+  border: 1px solid rgba(199, 165, 245, 0.4);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobileCardTopBadge {
+  width: 18px;
+  height: 5px;
+  border-radius: 2px;
+  background: #762FE0;
+}
+
+.mobileCardBodyLine {
+  width: 45px;
+  height: 5px;
+  border-radius: 2px;
+  background: #5423A8;
+}
+
+/* Mobile Feed List */
+.mobileFeedList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileFeedItem {
+  height: 22px;
+  border-radius: 6px;
+  background: #F8F4FD;
+  border: 1px solid rgba(199, 165, 245, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 5px;
+}
+
+.feedItemThumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: #762FE0;
+}
+
+.feedItemLines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.feedLine1 {
+  width: 75%;
+  height: 3px;
+  border-radius: 1px;
+  background: #5423A8;
+}
+
+.feedLine2 {
+  width: 50%;
+  height: 2px;
+  border-radius: 1px;
+  background: #C7A5F5;
+}
+
+/* Mobile Bottom Tab Bar */
+.mobileTabBar {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 4px;
+  border-top: 1px solid rgba(199, 165, 245, 0.25);
+}
+
+.tabDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C7A5F5;
+}
+
+.tabDotActive {
+  background: #762FE0;
+}
+
+/* --- 4. FLOATING GEOMETRIC IDEA ELEMENTS --- */
+.floatingIdeaDiamond {
+  position: absolute;
+  top: 18px;
+  right: 60px;
+  width: 32px;
+  height: 32px;
+  z-index: 4;
+  animation: ideaFloat1 5s ease-in-out infinite alternate;
+}
+
+@keyframes ideaFloat1 {
+  0% {
+    transform: translateY(-4px) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(6px) rotate(-8deg);
+  }
+}
+
+.floatingIdeaPrism {
+  position: absolute;
+  bottom: 85px;
+  left: 25px;
+  width: 26px;
+  height: 26px;
+  z-index: 4;
+  animation: ideaFloat2 6.2s ease-in-out infinite alternate;
+}
+
+@keyframes ideaFloat2 {
+  0% {
+    transform: translateY(5px) rotate(-10deg);
+  }
+
+  100% {
+    transform: translateY(-7px) rotate(10deg);
+  }
+}
+
+.floatingIdeaIndigoNode {
+  position: absolute;
+  top: 110px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #C7A5F5 0%, #4540A5 100%);
+  box-shadow: 0 4px 10px rgba(69, 64, 165, 0.35);
+  z-index: 4;
+  animation: ideaFloat3 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes ideaFloat3 {
+  0% {
+    transform: translateY(-3px) scale(0.9);
+  }
+
+  100% {
+    transform: translateY(5px) scale(1.1);
+  }
+}
+
+/* ========================================================
+   3. BELIEFS SECTION (SOFT LAVENDER-WHITE CARDS)
+   ======================================================== */
+.beliefsBlock {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5.5rem;
+  padding: clamp(2.5rem, 4.5vw, 3.8rem) clamp(1.4rem, 3.5vw, 2.8rem);
+  background: #FDFCFF;
+  border-radius: 32px;
+  border: 1px solid rgba(220, 210, 240, 0.65);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.04);
+}
+
+/* 4 Soft Blurred Ambient Color Blobs */
+.beliefsBlobViolet {
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: #8B5CF6;
+  filter: blur(95px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.beliefsBlobPink {
+  position: absolute;
+  top: -50px;
+  right: 18%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #EC4899;
+  filter: blur(95px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.beliefsBlobAmber {
+  position: absolute;
+  bottom: -60px;
+  left: 20%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: #FBBF24;
+  filter: blur(90px);
+  opacity: 0.30;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.beliefsBlobSky {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: #38BDF8;
+  filter: blur(95px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Faint Sparkles */
+.beliefsSparkle1 {
+  position: absolute;
+  top: 14%;
+  left: 28%;
+  color: #8B5CF6;
+  font-size: 13px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.beliefsSparkle2 {
+  position: absolute;
+  top: 18%;
+  right: 32%;
+  color: #EC4899;
+  font-size: 13px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.beliefsSparkle3 {
+  position: absolute;
+  bottom: 15%;
+  left: 54%;
+  color: #FBBF24;
+  font-size: 14px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.beliefsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.beliefsSectionTitle {
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1E1B2E;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.multiGradientDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899, #F59E0B, #14B8A6);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+  display: inline-block;
+}
+
+.beliefsSubtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #55506B;
+  margin: 0;
+}
+
+.corePrinciplesAccent {
+  color: #7C3AED;
+  font-weight: 600;
+}
+
+/* ========================================================
+   4 SEPARATE MULTI-COLOR PRINCIPLES CARDS
+   ======================================================== */
+.principlesHorizontalGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.principleCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  border-radius: 22px;
+  padding: clamp(1.8rem, 2.4vw, 2.4rem) clamp(1.4rem, 2vw, 1.8rem);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.03),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Thin multi-color gradient line under the card bottom on hover */
+.principleCard::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 33%, #F59E0B 66%, #14B8A6 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+}
+
+.principleCard:hover::after {
+  transform: scaleX(1);
+}
+
+.principleCardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.principleNumber {
+  font-family: var(--font-headline);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.principleCard:hover .principleNumber {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.principleIconCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.principleCard:hover .principleIconCircle {
+  transform: rotate(360deg);
+}
+
+.principleTitle {
+  font-family: var(--font-headline);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #1E1B2E;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.principleDesc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.66;
+  color: #55506B;
+  margin: 0;
+}
+
+.descDesktop {
+  display: inline;
+}
+
+.descMobile {
+  display: none;
+}
+
+/* 01 Understand First — Violet #8B5CF6 */
+.principleViolet {
+  background: linear-gradient(180deg,
+      rgba(139, 92, 246, 0.28) 0%,
+      rgba(255, 255, 255, 0.85) 45%,
+      rgba(255, 255, 255, 0.82) 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.28);
+}
+
+.principleViolet .principleNumber {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.principleViolet .principleIconCircle {
+  background: rgba(139, 92, 246, 0.14);
+  color: #8B5CF6;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.principleViolet:hover {
+  border-color: rgba(139, 92, 246, 0.55);
+  box-shadow: 0 20px 42px rgba(139, 92, 246, 0.20),
+    0 0 20px rgba(139, 92, 246, 0.12);
+}
+
+/* 02 Keep It Honest — Pink #EC4899 */
+.principlePink {
+  background: linear-gradient(180deg,
+      rgba(236, 72, 153, 0.28) 0%,
+      rgba(255, 255, 255, 0.85) 45%,
+      rgba(255, 255, 255, 0.82) 100%);
+  border: 1.5px solid rgba(236, 72, 153, 0.28);
+}
+
+.principlePink .principleNumber {
+  background: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.principlePink .principleIconCircle {
+  background: rgba(236, 72, 153, 0.14);
+  color: #EC4899;
+  border: 1px solid rgba(236, 72, 153, 0.25);
+}
+
+.principlePink:hover {
+  border-color: rgba(236, 72, 153, 0.55);
+  box-shadow: 0 20px 42px rgba(236, 72, 153, 0.20),
+    0 0 20px rgba(236, 72, 153, 0.12);
+}
+
+/* 03 Build With Purpose — Amber/Orange #F59E0B */
+.principleAmber {
+  background: linear-gradient(180deg,
+      rgba(245, 158, 11, 0.28) 0%,
+      rgba(255, 255, 255, 0.85) 45%,
+      rgba(255, 255, 255, 0.82) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.28);
+}
+
+.principleAmber .principleNumber {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.principleAmber .principleIconCircle {
+  background: rgba(245, 158, 11, 0.14);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.principleAmber:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 20px 42px rgba(245, 158, 11, 0.20),
+    0 0 20px rgba(245, 158, 11, 0.12);
+}
+
+/* 04 Own The Outcome — Sky/Teal #14B8A6 */
+.principleTeal {
+  background: linear-gradient(180deg,
+      rgba(20, 184, 166, 0.28) 0%,
+      rgba(255, 255, 255, 0.85) 45%,
+      rgba(255, 255, 255, 0.82) 100%);
+  border: 1.5px solid rgba(20, 184, 166, 0.28);
+}
+
+.principleTeal .principleNumber {
+  background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.principleTeal .principleIconCircle {
+  background: rgba(20, 184, 166, 0.14);
+  color: #0D9488;
+  border: 1px solid rgba(20, 184, 166, 0.25);
+}
+
+.principleTeal:hover {
+  border-color: rgba(20, 184, 166, 0.55);
+  box-shadow: 0 20px 42px rgba(20, 184, 166, 0.20),
+    0 0 20px rgba(20, 184, 166, 0.12);
+}
+
+@media (max-width: 1024px) {
+  .principlesHorizontalGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .descDesktop {
+    display: none !important;
+  }
+
+  .descMobile {
+    display: inline !important;
+  }
+
+  .beliefsBlock {
+    padding: 1.1rem 0.85rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 20px !important;
+  }
+
+  .beliefsHeader {
+    margin-bottom: 1.1rem !important;
+  }
+
+  .principlesHorizontalGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .principleCard {
+    padding: 12px 10px 14px !important;
+    border-radius: 16px !important;
+    min-height: auto !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 5px !important;
+  }
+
+  .principleCardTopRow {
+    margin-bottom: 2px !important;
+  }
+
+  .principleNumber {
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+  }
+
+  .principleIconCircle {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .principleTitle {
+    font-size: 0.94rem !important;
+    margin: 0 !important;
+    line-height: 1.22 !important;
+  }
+
+  .principleDesc {
+    font-size: 0.82rem !important;
+    line-height: 1.38 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .beliefsBlock {
+    padding: 1rem 0.75rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .principlesHorizontalGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+/* ========================================================
+   4. HUMAN CONNECTION (DISTINCT VIBRANT LAVENDER BAND)
+   ======================================================== */
+.conversationCard {
+  background: linear-gradient(135deg, #E6D2FB 0%, #D8BEF7 100%);
+  border: 1.5px solid rgba(147, 51, 234, 0.38);
+  border-radius: 24px;
+  padding: clamp(2.5rem, 4.5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.8rem);
+  box-shadow: 0 20px 45px rgba(124, 58, 237, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.conversationCard::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+}
+
+.conversationLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.conversationEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6D28D9;
+}
+
+.conversationHeading {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #1A0B2E;
+  margin: 0;
+}
+
+.conversationRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.conversationText {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #3D2C56;
+  margin: 0;
+}
+
+.conversationCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #7C3AED;
+  border: none;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.9rem 1.9rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+
+.conversationCtaBtn:hover {
+  background: #6D28D9;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.45);
+}
+
+.ctaArrowIcon {
+  transition: transform 0.25s ease;
+}
+
+.conversationCtaBtn:hover .ctaArrowIcon {
+  transform: translateX(4px);
+}
+
+/* ========================================================
+   5. FOUNDER SECTION (LAVENDER PANEL + WARM CREAM PORTRAIT BACKDROP)
+   ======================================================== */
+.founderBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.founderSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.founderSectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7C3AED;
+}
+
+/* Deep purple elevated panel (#1C1030 / #241540) */
+.founderGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 3.5vw, 3.8rem);
+  background: linear-gradient(145deg, #241540 0%, #1C1030 100%);
+  border: 1.5px solid rgba(168, 85, 247, 0.28);
+  border-radius: 28px;
+  padding: clamp(2.5rem, 4vw, 3.8rem) clamp(2rem, 3.5vw, 3.2rem);
+  box-shadow: 0 24px 60px rgba(10, 4, 20, 0.55), 0 0 35px rgba(124, 58, 237, 0.14);
+  overflow: hidden;
+}
+
+/* Soft radial lavender ambient glow behind the portrait (~20% opacity) */
+.founderAmbientGlow {
+  position: absolute;
+  top: 50%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(199, 167, 255, 0.22) 0%, rgba(124, 58, 237, 0.12) 45%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Portrait Frame (Left): ~115% larger hero element with slight left bleed */
+.founderPortraitContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 510px;
+  margin: 0 auto 0 -14px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founderPortraitFrame {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Gentle zero-gravity float loop */
+.founderFloatScene {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: founderHeroFloat 6.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes founderHeroFloat {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+/* Full resolution untouched original portrait image: NO filters, NO recolouring, NO posterization! */
+.founderPortraitImg {
+  width: 100%;
+  height: auto;
+  max-height: 610px;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  filter: drop-shadow(0 22px 45px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 35px rgba(124, 58, 237, 0.25));
+  transition: filter 0.4s ease;
+}
+
+.founderPortraitFrame:hover .founderPortraitImg {
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 50px rgba(168, 85, 247, 0.4));
+}
+
+/* Founder Details (Right): dark identity text system */
+.founderDetailsCol {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.founderEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C7A7FF;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+
+.founderName {
+  font-family: var(--font-headline);
+  font-size: clamp(2rem, 2.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F8F5FF;
+  margin: 0 0 0.4rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.founderWordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.founderWordInner {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.founderRole {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #A66BFF;
+  margin: 0 0 1.2rem 0;
+}
+
+.founderDividerLine {
+  width: 55px;
+  height: 3px;
+  background: linear-gradient(90deg, #A66BFF 0%, rgba(166, 107, 255, 0.2) 100%);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+  transform-origin: left;
+}
+
+.founderBioText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.founderBioParagraph {
+  font-family: var(--font-body);
+  font-size: clamp(0.96rem, 1.05vw, 1.02rem);
+  line-height: 1.76;
+  color: #B8AEC8;
+  margin: 0;
+}
+
+.founderMetaFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(199, 167, 255, 0.14);
+}
+
+.founderLocation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #C7A7FF;
+}
+
+.founderBrandMarkWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.95;
+}
+
+/* ========================================================
+   RESPONSIVE LAYOUT (Mobile & Tablet Spacing)
+   ======================================================== */
+@media (max-width: 1024px) {
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .compositionStageWrapper {
+    max-width: 500px;
+    height: auto;
+  }
+
+  .principlesHorizontalGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .principleColumn:nth-child(2) {
+    border-right: none;
+  }
+
+  .principleColumn:nth-child(1),
+  .principleColumn:nth-child(2) {
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  }
+
+  .conversationCard {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .founderGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .founderPortraitContainer {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .aboutSection {
+    padding: 3rem 0 2rem;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .innerContainer {
+    gap: 2rem !important;
+  }
+
+  .storyPanelWrapper {
+    padding: 2.2rem 1.4rem;
+    border-radius: 20px;
+  }
+
+  .storyHeadline {
+    font-size: 1.85rem;
+  }
+
+  .compositionStageWrapper {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .principlesHorizontalGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .principleColumn {
+    border-right: none;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    padding: 1.8rem 1.4rem;
+  }
+
+  .principleColumn:last-child {
+    border-bottom: none;
+  }
+
+  .conversationCard {
+    padding: 1.8rem 1.4rem;
+    border-radius: 20px;
+  }
+
+  .founderGrid {
+    padding: 1.8rem 1.4rem;
+    border-radius: 20px;
+  }
+
+  .founderPortraitContainer {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .founderName {
+    font-size: 1.7rem;
+  }
+}

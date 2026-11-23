@@ -1,0 +1,138 @@
+/* Paper Plane Flight Overlay */
+.flightOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: visible;
+}
+
+/* SVG Trail Line */
+.trailSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.trailLine {
+  transition: opacity 0.3s ease;
+}
+
+/* 3D Paper Plane Container (~54px) */
+.planeWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Soft Violet Backlight Glow behind the flying plane */
+.planeBackGlow {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.75) 0%, rgba(139, 92, 246, 0.35) 45%, transparent 75%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.planeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(120, 61, 224, 0.7))
+         drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Arrival Burst on Panel */
+.arrivalBurstContainer {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+}
+
+.burstRing {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #C084FC;
+  box-shadow: 0 0 16px currentColor;
+  pointer-events: none;
+}
+
+.burstGlowFlash {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.burstParticle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Idle Ghost Paper Plane Stage */
+.idleGhostPlaneStage {
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.idleGhostPlane {
+  position: absolute;
+  width: 44px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.idleGhostGlow {
+  position: absolute;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+.idleGhostImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+}

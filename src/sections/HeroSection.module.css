@@ -1,0 +1,371 @@
+.heroSection {
+  position: relative;
+  padding-top: clamp(6.5rem, 11vw, 8.5rem);
+  padding-bottom: clamp(4.5rem, 8vw, 6.5rem);
+  background: radial-gradient(ellipse at 80% 35%, #2D1354 0%, #1A0B2E 42%, #14091F 75%, #0E0417 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Ambient Radial Glows with Slow Drifting Nebula Movement (14-20s loop) */
+.ambientGlowTop {
+  position: absolute;
+  top: -8%;
+  left: 20%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 70%);
+  filter: blur(85px);
+  pointer-events: none;
+  animation: nebulaDriftTop 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.ambientGlowRight {
+  position: absolute;
+  top: 18%;
+  right: -5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, rgba(240, 171, 252, 0.12) 45%, transparent 70%);
+  filter: blur(95px);
+  pointer-events: none;
+  animation: nebulaDriftRight 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes nebulaDriftTop {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(30px, 20px, 0) scale(1.08); }
+  100% { transform: translate3d(-20px, 10px, 0) scale(0.96); }
+}
+
+@keyframes nebulaDriftRight {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-25px, -30px, 0) scale(1.1); }
+  100% { transform: translate3d(15px, 20px, 0) scale(0.95); }
+}
+
+/* Decorative Sparkles - Subtle Staggered Twinkle Loop */
+.sparkle1, .sparkle2, .sparkle3, .sparkle4 {
+  position: absolute;
+  color: #FDBA74;
+  font-size: 14px;
+  pointer-events: none;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(253, 186, 116, 0.6), 0 0 20px rgba(240, 171, 252, 0.4);
+}
+
+.sparkle1 {
+  top: 18%;
+  left: 10%;
+  animation: sparkleTwinkle 3.6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.sparkle2 {
+  top: 26%;
+  left: 46%;
+  font-size: 18px;
+  color: #F0ABFC;
+  animation: sparkleTwinkle 4.2s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+.sparkle3 {
+  top: 14%;
+  right: 28%;
+  font-size: 13px;
+  animation: sparkleTwinkle 3.8s ease-in-out infinite;
+  animation-delay: 2.3s;
+}
+
+.sparkle4 {
+  top: 38%;
+  left: 3%;
+  font-size: 15px;
+  color: #C084FC;
+  animation: sparkleTwinkle 4.6s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.2) rotate(15deg);
+  }
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* 2-Column Grid: Left Content / Right Big HD Showcase */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  width: 100%;
+  padding-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 0;
+  }
+}
+
+/* LEFT COLUMN */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 5;
+}
+
+/* Pill Badge: "🟢 Digital Studio · Bengaluru, India" */
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+}
+
+.limePulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-lime);
+  box-shadow: 0 0 10px var(--color-lime);
+}
+
+/* Headline */
+.headlineWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.headlineLine {
+  font-family: var(--font-headline);
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-bottom: 0.2rem;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.28em;
+  padding-bottom: 0.06em;
+}
+
+.wordInner {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.headlineLeadSparkle {
+  display: inline-block;
+  font-size: 0.55em;
+  color: #FDBA74;
+  margin-right: 0.28em;
+  vertical-align: 0.18em;
+  text-shadow: 0 0 14px rgba(253, 186, 116, 0.9), 0 0 25px rgba(240, 171, 252, 0.7);
+  pointer-events: none;
+}
+
+.digitalRealityGradient {
+  /* Rich warm orange-pink gradient with a soft white-gold light beam sweeping across every 6s */
+  background: linear-gradient(
+    105deg,
+    #FDBA74 0%,
+    #F472B6 24%,
+    #FFFFFF 36%,
+    #F472B6 48%,
+    #FDBA74 72%,
+    #F472B6 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: gradientShimmerSweep 6s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes gradientShimmerSweep {
+  0%, 75% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: -60% 50%;
+  }
+}
+
+/* Bottom Content Group with Layered Parallax Lag */
+.bottomParallaxWrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+/* Description */
+.description {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--text-muted);
+  line-height: 1.68;
+  max-width: 580px;
+  margin-bottom: 2rem;
+}
+
+/* Buttons Group */
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.primaryLimeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-lime);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  font-weight: 700;
+  padding: 0.9rem 1.85rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 22px rgba(200, 243, 29, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.primaryLimeBtn:hover {
+  background-color: var(--color-lime-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(200, 243, 29, 0.65);
+}
+
+.secondaryGlassBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 0.9rem 1.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.secondaryGlassBtn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* RIGHT COLUMN: Pure Code Composition */
+.rightCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+  .hero3dImage {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-top: 6.25rem;
+    padding-bottom: clamp(6.5rem, 15vw, 9.5rem);
+    min-height: auto;
+  }
+
+  .headlineLine {
+    font-size: clamp(2.1rem, 8.5vw, 3.4rem);
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+  }
+
+  .wordMask {
+    margin-right: 0.2em;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+
+  .ctaGroup {
+    margin-bottom: 3.5rem;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .primaryLimeBtn {
+    padding: 0.9rem 1.85rem;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+
+  .secondaryGlassBtn {
+    padding: 0.9rem 1.85rem;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+}

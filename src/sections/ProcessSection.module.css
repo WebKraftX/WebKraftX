@@ -1,0 +1,1205 @@
+/* ========================================================
+   PROCESS SECTION — CLEAN, VIBRANT, MODERN MULTI-COLOR AURORA
+   Linear / Stripe light marketing page aesthetic
+   
+   1. Background:
+      - Base: Light warm white #FAF8FF
+      - 4 Large soft blurred mesh-gradient blobs (Violet #8B5CF6, Pink #EC4899, Blue #38BDF8, Amber #FBBF24)
+      - Heavy blur (90–110px), ~35–42% opacity, ultra-smooth drift (≥8s)
+   2. Cards:
+      - Frosted glass rgba(255,255,255,0.65) with backdrop-filter: blur(20px)
+      - 1px rgba(255,255,255,0.85) border + faint colored edge
+      - Top accent bar + subtle gradient color wash bleeding from top
+      - Crisp dark text: Title #1E1B2E, Description #55506B
+      - White glass pills for deliverable tags
+   ======================================================== */
+
+.processSection {
+  position: relative;
+  background: #FAF8FF;
+  color: #55506B;
+  padding: clamp(5.5rem, 8vw, 8.5rem) 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* ========================================================
+   4 LARGE SOFT BLURRED MESH-GRADIENT BLOBS
+   - Violet #8B5CF6 top-left
+   - Hot pink #EC4899 top-right
+   - Sky blue #38BDF8 bottom-left
+   - Amber/peach #FBBF24 bottom-right
+   Heavy blur (95–115px), 35–42% opacity, drifting slowly
+   ======================================================== */
+.blobViolet {
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  background: #8B5CF6;
+  filter: blur(105px);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+  animation: driftViolet 13s ease-in-out infinite alternate;
+}
+
+.blobPink {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  background: #EC4899;
+  filter: blur(115px);
+  opacity: 0.36;
+  pointer-events: none;
+  z-index: 0;
+  animation: driftPink 15s ease-in-out infinite alternate;
+}
+
+.blobBlue {
+  position: absolute;
+  bottom: -110px;
+  left: 12%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: #38BDF8;
+  filter: blur(110px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  animation: driftBlue 14s ease-in-out infinite alternate;
+}
+
+.blobAmber {
+  position: absolute;
+  bottom: -60px;
+  right: 4%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: #FBBF24;
+  filter: blur(100px);
+  opacity: 0.30;
+  pointer-events: none;
+  z-index: 0;
+  animation: driftAmber 11s ease-in-out infinite alternate;
+}
+
+@keyframes driftViolet {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.34;
+  }
+
+  50% {
+    transform: translate(45px, 35px) scale(1.08);
+    opacity: 0.44;
+  }
+
+  100% {
+    transform: translate(-30px, 50px) scale(0.96);
+    opacity: 0.36;
+  }
+}
+
+@keyframes driftPink {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.32;
+  }
+
+  50% {
+    transform: translate(-40px, 45px) scale(1.06);
+    opacity: 0.42;
+  }
+
+  100% {
+    transform: translate(30px, -25px) scale(0.94);
+    opacity: 0.35;
+  }
+}
+
+@keyframes driftBlue {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.30;
+  }
+
+  50% {
+    transform: translate(40px, -35px) scale(1.08);
+    opacity: 0.40;
+  }
+
+  100% {
+    transform: translate(-25px, 25px) scale(0.95);
+    opacity: 0.33;
+  }
+}
+
+@keyframes driftAmber {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.26;
+  }
+
+  50% {
+    transform: translate(-35px, -30px) scale(1.12);
+    opacity: 0.36;
+  }
+
+  100% {
+    transform: translate(25px, 20px) scale(0.92);
+    opacity: 0.28;
+  }
+}
+
+/* Subtle background sparkles */
+.bgSparkle1 {
+  position: absolute;
+  top: 14%;
+  left: 12%;
+  color: #8B5CF6;
+  font-size: 13px;
+  opacity: 0.45;
+  pointer-events: none;
+  animation: bgSparklePulse 4s ease-in-out infinite;
+}
+
+.bgSparkle2 {
+  position: absolute;
+  top: 18%;
+  right: 68%;
+  color: #EC4899;
+  font-size: 12px;
+  opacity: 0.45;
+  pointer-events: none;
+  animation: bgSparklePulse 4.2s ease-in-out infinite 1s;
+}
+
+.bgSparkle3 {
+  position: absolute;
+  top: 12%;
+  right: 36%;
+  color: #38BDF8;
+  font-size: 12px;
+  opacity: 0.4;
+  pointer-events: none;
+  animation: bgSparklePulse 4.6s ease-in-out infinite 1.8s;
+}
+
+.bgSparkle4 {
+  position: absolute;
+  top: 16%;
+  right: 8%;
+  color: #FBBF24;
+  font-size: 13px;
+  opacity: 0.45;
+  pointer-events: none;
+  animation: bgSparklePulse 3.8s ease-in-out infinite 0.6s;
+}
+
+@keyframes bgSparklePulse {
+
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+.innerContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max, 1320px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, clamp(1.25rem, 4vw, 2.75rem));
+}
+
+/* ========================================================
+   1. SECTION HEADER
+   ======================================================== */
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 860px;
+  margin-bottom: clamp(3.5rem, 6vw, 5rem);
+}
+
+/* Label: WEBKRAFTX PROCESS */
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7C3AED;
+  margin-bottom: 1.25rem;
+}
+
+.labelSparkle {
+  color: #8B5CF6;
+  font-size: 0.88rem;
+  animation: labelTwinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes labelTwinkle {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.9) rotate(-6deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2) rotate(6deg);
+  }
+}
+
+/* Headline: #1E1B2E */
+.sectionHeading {
+  font-family: var(--font-headline);
+  font-size: clamp(2.1rem, 3.4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #1E1B2E;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.headlineLineSolid {
+  display: flex;
+  flex-wrap: wrap;
+  color: #1E1B2E;
+}
+
+.headlineLineSecond {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.shimmerWord {
+  display: inline-block;
+  background: linear-gradient(135deg, #7C3AED 0%, #C026D3 40%, #EC4899 75%, #0284C7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #7C3AED;
+  animation: gradientShimmerDrift 6s linear infinite;
+  will-change: transform, opacity, filter;
+  font-weight: 800;
+}
+
+@keyframes gradientShimmerDrift {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: top;
+}
+
+.wordInner {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  color: #1E1B2E;
+}
+
+/* Sub-line: #55506B */
+.sectionSubtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.15vw, 1.12rem);
+  line-height: 1.72;
+  color: #55506B;
+  margin: 0;
+  max-width: 760px;
+}
+
+/* ========================================================
+   2. CONNECTED TIMELINE (Violet → Pink → Blue → Teal)
+   ======================================================== */
+.timelineContainer {
+  position: relative;
+  width: 100%;
+}
+
+/* Horizontal Connecting Line */
+.timelineBar {
+  position: absolute;
+  top: -24px;
+  left: calc(12.5% - 6px);
+  right: calc(12.5% - 6px);
+  height: 2px;
+  background: rgba(139, 92, 246, 0.16);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.timelineLineFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 33%, #38BDF8 66%, #2DD4A8 100%);
+  transform-origin: left;
+}
+
+/* Travelling Orb: White core with shifting multi-color glow */
+.travelingOrb {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  animation: orbTravelWithColorShift 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes orbTravelWithColorShift {
+  0% {
+    left: 0%;
+    opacity: 0;
+    transform: scale(0.5);
+    box-shadow: 0 0 10px 3px rgba(139, 92, 246, 0.75), 0 0 20px 6px rgba(139, 92, 246, 0.4);
+  }
+
+  5% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 12px 4px rgba(139, 92, 246, 0.8), 0 0 22px 7px rgba(139, 92, 246, 0.45);
+  }
+
+  25% {
+    box-shadow: 0 0 12px 4px rgba(236, 72, 153, 0.8), 0 0 22px 7px rgba(236, 72, 153, 0.45);
+  }
+
+  55% {
+    box-shadow: 0 0 12px 4px rgba(56, 189, 248, 0.8), 0 0 22px 7px rgba(56, 189, 248, 0.45);
+  }
+
+  85% {
+    box-shadow: 0 0 12px 4px rgba(45, 212, 168, 0.8), 0 0 22px 7px rgba(45, 212, 168, 0.45);
+  }
+
+  95% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px 3px rgba(45, 212, 168, 0.75), 0 0 20px 6px rgba(45, 212, 168, 0.4);
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* 4-Step Grid */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================================
+   FROSTED GLASS CARD STYLES (Light, Airy, Multi-Color)
+   ======================================================== */
+.stepCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 2.2rem 1.65rem 1.85rem 1.65rem;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Thin Top Accent Bar */
+.cardTopAccentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 2;
+}
+
+/* Faint diagonal shine sweep across the card surface on hover */
+.stepCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 65%);
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+}
+
+.stepCard:hover::after {
+  transform: rotate(25deg) translateY(50%);
+}
+
+/* Timeline Node Anchor */
+.nodeAnchor {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.nodePulseRing {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  animation: nodeRingPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes nodeRingPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+.nodePointDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Corner Watermark */
+.planeWatermark {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 52px;
+  height: 38px;
+  opacity: 0.04;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.1));
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 0;
+}
+
+.watermarkImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.stepCard:hover .planeWatermark {
+  opacity: 0.12;
+  transform: translate(-3px, -3px) rotate(-4deg);
+}
+
+/* Top Card Row */
+.cardTopRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+/* Icon Tile Base */
+.iconBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stepCard:hover .iconBadge {
+  transform: scale(1.15) rotate(6deg);
+  filter: brightness(1.12);
+}
+
+.stepIconSvg {
+  transition: transform 0.3s ease;
+}
+
+/* Ghost Number Base */
+.stepGhostNumber {
+  font-family: var(--font-headline);
+  font-size: clamp(2.8rem, 3.8vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  transition: transform 0.35s ease, -webkit-text-stroke 0.35s ease, filter 0.35s ease;
+  user-select: none;
+}
+
+.stepCard:hover .stepGhostNumber {
+  transform: scale(1.06);
+}
+
+/* Title & Description */
+.stepTitle {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-family: var(--font-headline);
+  font-size: clamp(1.08rem, 1.3vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1E1B2E;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.85rem 0;
+  width: fit-content;
+}
+
+.stepTitleText {
+  position: relative;
+  z-index: 1;
+}
+
+.titleUnderline {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.stepCard:hover .titleUnderline {
+  transform: scaleX(1);
+}
+
+.stepDescription {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #55506B;
+  margin: 0 0 1.6rem 0;
+  flex: 1;
+}
+
+.titleDesktop {
+  display: inline;
+}
+
+.titleMobile {
+  display: none;
+}
+
+.descDesktop {
+  display: inline;
+}
+
+.descMobile {
+  display: none;
+}
+
+/* Deliverable Tags Base (White Pills) */
+.tagsContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.deliverableTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(220, 215, 235, 0.7);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.tagDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+/* ========================================================
+   CARD 01: DISCOVERY (LAVENDER → SOFT PINK WASH)
+   Accent: #8B5CF6 (Violet)
+   ======================================================== */
+.cardViolet {
+  background: linear-gradient(180deg,
+      rgba(235, 221, 248, 0.65) 0%,
+      rgba(253, 231, 239, 0.35) 28%,
+      rgba(255, 255, 255, 0.75) 60%,
+      rgba(255, 255, 255, 0.68) 100%);
+  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cardViolet .cardTopAccentBar {
+  background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.cardViolet .nodePointDot {
+  background: #8B5CF6;
+  box-shadow: 0 0 6px #8B5CF6;
+}
+
+.cardViolet .nodePulseRing {
+  border: 1.5px solid rgba(139, 92, 246, 0.45);
+}
+
+.cardViolet .iconBadge {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+}
+
+.cardViolet .stepGhostNumber {
+  -webkit-text-stroke: 1.5px rgba(139, 92, 246, 0.32);
+  color: rgba(139, 92, 246, 0.08);
+}
+
+.cardViolet .titleUnderline {
+  background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+}
+
+.cardViolet .deliverableTag {
+  color: #7C3AED;
+}
+
+.cardViolet .tagDot {
+  background: #8B5CF6;
+  box-shadow: 0 0 4px #8B5CF6;
+}
+
+.cardViolet:hover {
+  background: linear-gradient(180deg,
+      rgba(235, 221, 248, 0.8) 0%,
+      rgba(253, 231, 239, 0.45) 30%,
+      rgba(255, 255, 255, 0.82) 65%,
+      rgba(255, 255, 255, 0.75) 100%);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 24px 50px rgba(139, 92, 246, 0.18),
+    0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.cardViolet:hover .stepGhostNumber {
+  -webkit-text-stroke: 1.5px transparent;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.4));
+}
+
+.cardViolet:hover .nodePointDot {
+  transform: scale(1.35);
+  box-shadow: 0 0 10px #8B5CF6;
+}
+
+.cardViolet:hover .deliverableTag {
+  background: #F3E8FF;
+  border-color: #C4B5FD;
+  color: #6D28D9;
+}
+
+/* ========================================================
+   CARD 02: DESIGN (PINK → SOFT ORANGE/PEACH WASH)
+   Accent: #EC4899 (Pink)
+   ======================================================== */
+.cardPink {
+  background: linear-gradient(180deg,
+      rgba(253, 231, 239, 0.65) 0%,
+      rgba(255, 240, 224, 0.35) 28%,
+      rgba(255, 255, 255, 0.75) 60%,
+      rgba(255, 255, 255, 0.68) 100%);
+  box-shadow: 0 16px 36px rgba(236, 72, 153, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cardPink .cardTopAccentBar {
+  background: linear-gradient(90deg, #EC4899 0%, #FB923C 100%);
+}
+
+.cardPink .nodePointDot {
+  background: #EC4899;
+  box-shadow: 0 0 6px #EC4899;
+}
+
+.cardPink .nodePulseRing {
+  border: 1.5px solid rgba(236, 72, 153, 0.45);
+}
+
+.cardPink .iconBadge {
+  background: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+}
+
+.cardPink .stepGhostNumber {
+  -webkit-text-stroke: 1.5px rgba(236, 72, 153, 0.32);
+  color: rgba(236, 72, 153, 0.08);
+}
+
+.cardPink .titleUnderline {
+  background: linear-gradient(90deg, #EC4899 0%, #FB923C 100%);
+}
+
+.cardPink .deliverableTag {
+  color: #DB2777;
+}
+
+.cardPink .tagDot {
+  background: #EC4899;
+  box-shadow: 0 0 4px #EC4899;
+}
+
+.cardPink:hover {
+  background: linear-gradient(180deg,
+      rgba(253, 231, 239, 0.8) 0%,
+      rgba(255, 240, 224, 0.45) 30%,
+      rgba(255, 255, 255, 0.82) 65%,
+      rgba(255, 255, 255, 0.75) 100%);
+  border-color: rgba(236, 72, 153, 0.45);
+  box-shadow: 0 24px 50px rgba(236, 72, 153, 0.18),
+    0 0 20px rgba(236, 72, 153, 0.1);
+}
+
+.cardPink:hover .stepGhostNumber {
+  -webkit-text-stroke: 1.5px transparent;
+  background: linear-gradient(135deg, #EC4899 0%, #FB923C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.4));
+}
+
+.cardPink:hover .nodePointDot {
+  transform: scale(1.35);
+  box-shadow: 0 0 10px #EC4899;
+}
+
+.cardPink:hover .deliverableTag {
+  background: #FCE7F3;
+  border-color: #FBCFE8;
+  color: #BE185D;
+}
+
+/* ========================================================
+   CARD 03: ENGINEERING (BLUE → SOFT TEAL WASH)
+   Accent: #38BDF8 (Blue)
+   ======================================================== */
+.cardBlue {
+  background: linear-gradient(180deg,
+      rgba(231, 240, 253, 0.65) 0%,
+      rgba(233, 249, 241, 0.35) 28%,
+      rgba(255, 255, 255, 0.75) 60%,
+      rgba(255, 255, 255, 0.68) 100%);
+  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cardBlue .cardTopAccentBar {
+  background: linear-gradient(90deg, #38BDF8 0%, #2DD4A8 100%);
+}
+
+.cardBlue .nodePointDot {
+  background: #38BDF8;
+  box-shadow: 0 0 6px #38BDF8;
+}
+
+.cardBlue .nodePulseRing {
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+}
+
+.cardBlue .iconBadge {
+  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%);
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+}
+
+.cardBlue .stepGhostNumber {
+  -webkit-text-stroke: 1.5px rgba(56, 189, 248, 0.32);
+  color: rgba(56, 189, 248, 0.08);
+}
+
+.cardBlue .titleUnderline {
+  background: linear-gradient(90deg, #38BDF8 0%, #2DD4A8 100%);
+}
+
+.cardBlue .deliverableTag {
+  color: #0284C7;
+}
+
+.cardBlue .tagDot {
+  background: #38BDF8;
+  box-shadow: 0 0 4px #38BDF8;
+}
+
+.cardBlue:hover {
+  background: linear-gradient(180deg,
+      rgba(231, 240, 253, 0.8) 0%,
+      rgba(233, 249, 241, 0.45) 30%,
+      rgba(255, 255, 255, 0.82) 65%,
+      rgba(255, 255, 255, 0.75) 100%);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 24px 50px rgba(56, 189, 248, 0.18),
+    0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.cardBlue:hover .stepGhostNumber {
+  -webkit-text-stroke: 1.5px transparent;
+  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+}
+
+.cardBlue:hover .nodePointDot {
+  transform: scale(1.35);
+  box-shadow: 0 0 10px #38BDF8;
+}
+
+.cardBlue:hover .deliverableTag {
+  background: #E0F2FE;
+  border-color: #BAE6FD;
+  color: #0369A1;
+}
+
+/* ========================================================
+   CARD 04: SCALING (TEAL → SOFT BLUE WASH)
+   Accent: #2DD4A8 (Teal)
+   ======================================================== */
+.cardTeal {
+  background: linear-gradient(180deg,
+      rgba(233, 249, 241, 0.65) 0%,
+      rgba(231, 240, 253, 0.35) 28%,
+      rgba(255, 255, 255, 0.75) 60%,
+      rgba(255, 255, 255, 0.68) 100%);
+  box-shadow: 0 16px 36px rgba(45, 212, 168, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cardTeal .cardTopAccentBar {
+  background: linear-gradient(90deg, #2DD4A8 0%, #38BDF8 100%);
+}
+
+.cardTeal .nodePointDot {
+  background: #2DD4A8;
+  box-shadow: 0 0 6px #2DD4A8;
+}
+
+.cardTeal .nodePulseRing {
+  border: 1.5px solid rgba(45, 212, 168, 0.45);
+}
+
+.cardTeal .iconBadge {
+  background: linear-gradient(135deg, #0D9488 0%, #2DD4A8 100%);
+  box-shadow: 0 4px 14px rgba(45, 212, 168, 0.35);
+}
+
+.cardTeal .stepGhostNumber {
+  -webkit-text-stroke: 1.5px rgba(45, 212, 168, 0.32);
+  color: rgba(45, 212, 168, 0.08);
+}
+
+.cardTeal .titleUnderline {
+  background: linear-gradient(90deg, #2DD4A8 0%, #38BDF8 100%);
+}
+
+.cardTeal .deliverableTag {
+  color: #0D9488;
+}
+
+.cardTeal .tagDot {
+  background: #2DD4A8;
+  box-shadow: 0 0 4px #2DD4A8;
+}
+
+.cardTeal:hover {
+  background: linear-gradient(180deg,
+      rgba(233, 249, 241, 0.8) 0%,
+      rgba(231, 240, 253, 0.45) 30%,
+      rgba(255, 255, 255, 0.82) 65%,
+      rgba(255, 255, 255, 0.75) 100%);
+  border-color: rgba(45, 212, 168, 0.45);
+  box-shadow: 0 24px 50px rgba(45, 212, 168, 0.18),
+    0 0 20px rgba(45, 212, 168, 0.1);
+}
+
+.cardTeal:hover .stepGhostNumber {
+  -webkit-text-stroke: 1.5px transparent;
+  background: linear-gradient(135deg, #0D9488 0%, #2DD4A8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(45, 212, 168, 0.4));
+}
+
+.cardTeal:hover .nodePointDot {
+  transform: scale(1.35);
+  box-shadow: 0 0 10px #2DD4A8;
+}
+
+.cardTeal:hover .deliverableTag {
+  background: #CCFBF1;
+  border-color: #99F6E4;
+  color: #0F766E;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Connected Timeline on Desktop, 2-Col Compact on Mobile)
+   ======================================================== */
+@media (max-width: 1080px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .timelineBar {
+    display: none;
+  }
+
+  .nodeAnchor {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .processSection {
+    padding: 3.5rem 0;
+  }
+
+  .titleDesktop {
+    display: none !important;
+  }
+
+  .titleMobile {
+    display: inline !important;
+  }
+
+  .descDesktop {
+    display: none !important;
+  }
+
+  .descMobile {
+    display: inline !important;
+  }
+
+  .timelineBar {
+    display: none !important;
+  }
+
+  .timelineContainer {
+    position: relative;
+    padding-left: 0 !important;
+  }
+
+  .stepsGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .stepCard {
+    padding: 12px 10px 14px !important;
+    border-radius: 16px !important;
+    min-height: auto !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .cardTopRow {
+    margin-bottom: 0.5rem !important;
+    flex-direction: row-reverse !important;
+  }
+
+  .iconBadge {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 8px !important;
+  }
+
+  .stepIconSvg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .stepGhostNumber {
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+  }
+
+  .stepTitle {
+    font-size: 0.94rem !important;
+    margin: 0 0 3px 0 !important;
+    line-height: 1.22 !important;
+  }
+
+  .stepDescription {
+    font-size: 0.82rem !important;
+    line-height: 1.38 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+  }
+
+  .tagsContainer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .processSection {
+    padding: 3rem 0;
+  }
+
+  .timelineBar {
+    display: none !important;
+  }
+
+  .timelineContainer {
+    padding-left: 0 !important;
+  }
+
+  .stepsGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .stepCard {
+    padding: 12px 12px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .stepGhostNumber {
+    font-size: 1.35rem !important;
+  }
+}
+
+/* ========================================================
+   REDUCED MOTION COMPLIANCE
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .labelSparkle,
+  .headlineShimmerGroup,
+  .travelingOrb,
+  .nodePulseRing,
+  .bgSparkle1,
+  .bgSparkle2,
+  .bgSparkle3,
+  .bgSparkle4,
+  .blobViolet,
+  .blobPink,
+  .blobBlue,
+  .blobAmber {
+    animation: none !important;
+  }
+
+  .stepCard:hover {
+    transform: none !important;
+  }
+
+  .stepCard::after {
+    display: none !important;
+  }
+
+  .stepCard:hover .iconBadge {
+    transform: none !important;
+  }
+
+  .stepCard:hover .stepGhostNumber {
+    transform: none !important;
+  }
+}

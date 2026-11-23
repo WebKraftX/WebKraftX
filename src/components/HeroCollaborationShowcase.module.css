@@ -1,0 +1,379 @@
+/* ========================================================
+   WEBKRAFTX HERO COLLABORATION SHOWCASE — BIG HD PRESENTATION
+   Theme: Interstellar Dark Galaxy, Luminous Purple Glowing Glass
+   ======================================================== */
+
+.showcaseRoot {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Multi-Layered Atmospheric Background Nebula Glows */
+.nebulaGlowMain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 115%;
+  height: 115%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.38) 0%,
+    rgba(192, 38, 211, 0.22) 42%,
+    rgba(236, 72, 153, 0.12) 65%,
+    transparent 80%
+  );
+  filter: blur(75px);
+  pointer-events: none;
+  z-index: 0;
+  animation: glowBreathe 7s ease-in-out infinite alternate;
+}
+
+.nebulaGlowSecondary {
+  position: absolute;
+  top: 40%;
+  right: -5%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 0;
+  animation: glowShift 9s ease-in-out infinite alternate;
+}
+
+@keyframes glowBreathe {
+  0% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes glowShift {
+  0% {
+    transform: translate(0, 0) scale(0.9);
+  }
+  100% {
+    transform: translate(-20px, 20px) scale(1.1);
+  }
+}
+
+/* Floating Master Container */
+.floatingContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Glass Viewport Card (HD Frame) */
+.glassViewportCard {
+  position: relative;
+  width: 100%;
+  background: rgba(18, 9, 34, 0.78);
+  border: 1.5px solid rgba(199, 167, 255, 0.32);
+  border-radius: 22px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.75),
+    0 0 50px rgba(139, 92, 246, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glassViewportCard:hover {
+  border-color: rgba(217, 70, 239, 0.55);
+  box-shadow: 
+    0 28px 75px rgba(0, 0, 0, 0.85),
+    0 0 65px rgba(168, 85, 247, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Sleek Window Header Bar */
+.windowHeaderBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(199, 167, 255, 0.16);
+  user-select: none;
+}
+
+.windowDots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotRed {
+  background: #EF4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+}
+
+.dotYellow {
+  background: #F59E0B;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.dotGreen {
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+.windowTitle {
+  font-family: var(--font-body, -apple-system, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #D3C9E3;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.liveIndicatorDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+}
+
+.windowBadge {
+  font-family: var(--font-headline, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #C084FC;
+  background: rgba(168, 85, 247, 0.16);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  letter-spacing: 0.06em;
+}
+
+/* Media Viewport Area */
+.mediaViewport {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  line-height: 0;
+  overflow: hidden;
+}
+
+/* The Looping Animation Media (GIF/Video) in Big Size, HD */
+.showcaseMedia {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  transition: transform 0.4s ease;
+}
+
+.glassViewportCard:hover .showcaseMedia {
+  transform: scale(1.02);
+}
+
+/* Glossy Surface Reflection Sheen */
+.glassSheenOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    transparent 65%,
+    rgba(168, 85, 247, 0.08) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Floating Corner Accents */
+.badgeTopFloating {
+  position: absolute;
+  top: -16px;
+  right: 20px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(24, 11, 42, 0.88);
+  border: 1.5px solid rgba(199, 167, 255, 0.35);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: floatChip 4.5s ease-in-out infinite alternate;
+}
+
+.badgeTopDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+}
+
+.badgeBottomFloating {
+  position: absolute;
+  bottom: -16px;
+  left: 20px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(24, 11, 42, 0.88);
+  border: 1.5px solid rgba(199, 167, 255, 0.35);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #E9D5FF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(236, 72, 153, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: floatChip 5.2s ease-in-out infinite alternate-reverse;
+}
+
+.sparkleIcon {
+  color: #FBBF24;
+  font-size: 13px;
+}
+
+@keyframes floatChip {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Ambient Sparkles around the frame */
+.sparkleLeft {
+  position: absolute;
+  top: 15%;
+  left: -24px;
+  color: #C084FC;
+  font-size: 16px;
+  pointer-events: none;
+  animation: slowTwinkle 3.5s ease-in-out infinite;
+}
+
+.sparkleRight {
+  position: absolute;
+  bottom: 20%;
+  right: -24px;
+  color: #F472B6;
+  font-size: 18px;
+  pointer-events: none;
+  animation: slowTwinkle 4.2s ease-in-out infinite 1.5s;
+}
+
+@keyframes slowTwinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+/* Responsive Scaling */
+@media (max-width: 980px) {
+  .showcaseRoot {
+    max-width: 580px;
+    margin-top: 1rem;
+  }
+  .showcaseMedia {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcaseRoot {
+    max-width: 100%;
+  }
+  .badgeTopFloating,
+  .badgeBottomFloating {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+  .badgeTopFloating {
+    top: -12px;
+    right: 12px;
+  }
+  .badgeBottomFloating {
+    bottom: -12px;
+    left: 12px;
+  }
+  .sparkleLeft,
+  .sparkleRight {
+    display: none;
+  }
+  .showcaseMedia {
+    min-height: 200px;
+  }
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  .nebulaGlowMain,
+  .nebulaGlowSecondary,
+  .badgeTopFloating,
+  .badgeBottomFloating,
+  .sparkleLeft,
+  .sparkleRight {
+    animation: none !important;
+  }
+  .glassViewportCard:hover .showcaseMedia {
+    transform: none !important;
+  }
+}
