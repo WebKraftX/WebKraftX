@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import paperPlaneMiniImg from '../assets/paper-plane-mini.png';
 import { submitContactEnquiry, ContactFormData } from '../services/contactService';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 import styles from './ContactPage.module.css';
 
 interface ContactPageProps {
@@ -30,15 +31,6 @@ const SERVICE_OPTIONS = [
   'Short-Form Video Production',
   'AI Video & Synthetic Media',
   'Full Digital Overhaul / Brand Suite',
-];
-
-const BUDGET_OPTIONS = [
-  'Under ₹50,000',
-  '₹50,000 – ₹1,00,000',
-  '₹1,00,000 – ₹2,50,000',
-  '₹2,50,000 – ₹5,00,000',
-  '₹5,00,000+',
-  'Flexible / Undecided',
 ];
 
 const NEXT_STEPS = [
@@ -74,7 +66,7 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
     email: '',
     phone: '',
     service: SERVICE_OPTIONS[0],
-    budget: BUDGET_OPTIONS[1],
+    budget: '',
     description: '',
     preferredContact: 'WhatsApp',
     privacyAgree: false,
@@ -109,19 +101,22 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
       newErrors.email = 'Please enter a valid email address.';
     }
 
-    const digitsOnly = formData.phone.replace(/\D/g, '');
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Please enter your phone number.';
-    } else if (digitsOnly.length < 10) {
-      newErrors.phone = 'Please enter at least 10 digits for your phone number.';
+    // Phone is only required if WhatsApp is selected
+    if (formData.preferredContact === 'WhatsApp') {
+      const digitsOnly = formData.phone ? formData.phone.replace(/\D/g, '') : '';
+      if (!formData.phone || !formData.phone.trim()) {
+        newErrors.phone = 'Please enter your phone number for WhatsApp.';
+      } else if (digitsOnly.length < 10) {
+        newErrors.phone = 'Please enter at least 10 digits for your phone number.';
+      }
     }
 
     if (!formData.service) {
       newErrors.service = 'Please select a service.';
     }
 
-    if (!formData.budget) {
-      newErrors.budget = 'Please select an estimated budget range.';
+    if (!formData.budget.trim()) {
+      newErrors.budget = 'Please enter an estimated budget (e.g. ₹25,000 or ₹30,000 – ₹1,00,000).';
     }
 
     if (!formData.privacyAgree) {
@@ -154,8 +149,15 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
     }
   };
 
-  const handlePreferredContactChange = (val: 'WhatsApp' | 'Email' | 'Phone call') => {
+  const handlePreferredContactChange = (val: 'WhatsApp' | 'Email') => {
     setFormData((prev) => ({ ...prev, preferredContact: val }));
+    if (val === 'Email' && errors.phone) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated.phone;
+        return updated;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -177,12 +179,30 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
     try {
       const res = await submitContactEnquiry(formData);
       if (res.success) {
+        if (res.whatsAppUrl) {
+          window.open(res.whatsAppUrl, '_blank', 'noopener,noreferrer');
+        }
         setIsSuccess(true);
+        // Reset form on success
+        setFormData({
+          fullName: '',
+          businessName: '',
+          email: '',
+          phone: '',
+          service: SERVICE_OPTIONS[0],
+          budget: '',
+          description: '',
+          preferredContact: 'WhatsApp',
+          privacyAgree: false,
+          honeypot: '',
+        });
+        setHasSubmittedAttempt(false);
+        setErrors({});
       } else {
-        setSubmitError(res.message || 'Unable to deliver your enquiry. Please retry or contact via WhatsApp.');
+        setSubmitError(res.message || 'Something went wrong while delivering your message.');
       }
     } catch (err: any) {
-      setSubmitError(err.message || 'An error occurred while sending your message. Please try again.');
+      setSubmitError(err.message || 'Something went wrong while delivering your message.');
     } finally {
       setIsSubmitting(false);
     }
@@ -451,28 +471,15 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                     <div className={styles.successIconBubble}>
                       <CheckCircle2 size={42} className={styles.successCheckIcon} />
                     </div>
-                    <h3 className={styles.successTitle}>Enquiry Successfully Sent</h3>
+                    <h3 className={styles.successTitle}>Thanks! We&apos;ll get back to you within 24 hours.</h3>
                     <p className={styles.successMessage}>
-                      Thank you — your enquiry has been sent. We&apos;ll be in touch shortly.
+                      Your project enquiry has been submitted successfully. We review every requirement personally and will reach out with clear next steps.
                     </p>
                     <button
                       type="button"
                       className={styles.submitAnotherBtn}
                       onClick={() => {
                         setIsSuccess(false);
-                        setFormData({
-                          fullName: '',
-                          businessName: '',
-                          email: '',
-                          phone: '',
-                          service: SERVICE_OPTIONS[0],
-                          budget: BUDGET_OPTIONS[1],
-                          description: '',
-                          preferredContact: 'WhatsApp',
-                          privacyAgree: false,
-                          honeypot: '',
-                        });
-                        setErrors({});
                       }}
                     >
                       Send another enquiry
@@ -492,7 +499,22 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                     {submitError && (
                       <div className={styles.errorAlertBanner}>
                         <AlertCircle size={18} className={styles.errorAlertIcon} />
-                        <span>{submitError}</span>
+                        <div>
+                          <span>Something went wrong. Reach us directly at </span>
+                          <a href={`mailto:${CONTACT_CONFIG.contactEmail}`} className={styles.errorAlertLink}>
+                            {CONTACT_CONFIG.contactEmail}
+                          </a>
+                          <span> or on </span>
+                          <a
+                            href={CONTACT_CONFIG.getWhatsAppUrl()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.errorAlertLink}
+                          >
+                            WhatsApp
+                          </a>
+                          .
+                        </div>
                       </div>
                     )}
 
@@ -570,10 +592,15 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                         )}
                       </div>
 
-                      {/* 4. Phone* */}
+                      {/* 4. Phone Number */}
                       <div className={styles.fieldGroup}>
                         <label htmlFor="phone" className={styles.fieldLabel}>
-                          Phone Number <span className={styles.requiredStar}>*</span>
+                          Phone Number{' '}
+                          {formData.preferredContact === 'WhatsApp' ? (
+                            <span className={styles.requiredStar}>*</span>
+                          ) : (
+                            <span className={styles.optionalNote}>(Optional)</span>
+                          )}
                         </label>
                         <input
                           id="phone"
@@ -584,7 +611,7 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                           placeholder="e.g. +91 98765 43210"
                           className={`${styles.textInput} ${errors.phone ? styles.inputInvalid : ''}`}
                           disabled={isSubmitting}
-                          required
+                          required={formData.preferredContact === 'WhatsApp'}
                         />
                         {errors.phone && (
                           <span className={styles.fieldErrorMessage}>{errors.phone}</span>
@@ -614,27 +641,26 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                         </div>
                       </div>
 
-                      {/* 6. Budget Dropdown (6 ₹ options) */}
+                      {/* 6. Estimated Budget (Free text/number with numeric mode) */}
                       <div className={styles.fieldGroup}>
                         <label htmlFor="budget" className={styles.fieldLabel}>
                           Estimated Budget <span className={styles.requiredStar}>*</span>
                         </label>
-                        <div className={styles.selectWrapper}>
-                          <select
-                            id="budget"
-                            name="budget"
-                            value={formData.budget}
-                            onChange={handleChange}
-                            className={styles.customSelect}
-                            disabled={isSubmitting}
-                          >
-                            {BUDGET_OPTIONS.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
+                        <input
+                          id="budget"
+                          type="text"
+                          inputMode="numeric"
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleChange}
+                          placeholder="e.g. ₹25,000 or ₹30,000 – ₹1,00,000"
+                          className={`${styles.textInput} ${errors.budget ? styles.inputInvalid : ''}`}
+                          disabled={isSubmitting}
+                          required
+                        />
+                        {errors.budget && (
+                          <span className={styles.fieldErrorMessage}>{errors.budget}</span>
+                        )}
                       </div>
                     </div>
 
@@ -655,11 +681,11 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                       />
                     </div>
 
-                    {/* 8. Preferred Contact Method (Radio Pills) */}
+                    {/* 8. Preferred Contact Method (WhatsApp & Email only) */}
                     <div className={styles.fieldGroupFull}>
                       <label className={styles.fieldLabel}>Preferred Contact Method</label>
                       <div className={styles.radioPillsRow}>
-                        {(['WhatsApp', 'Email', 'Phone call'] as const).map((method) => {
+                        {(['WhatsApp', 'Email'] as const).map((method) => {
                           const isSelected = formData.preferredContact === method;
                           return (
                             <button
@@ -707,7 +733,7 @@ export function ContactPage({ onNavigateHome }: ContactPageProps) {
                         {isSubmitting ? (
                           <>
                             <Loader2 size={18} className={styles.spinnerIcon} />
-                            <span>Connecting With Us...</span>
+                            <span>Sending…</span>
                           </>
                         ) : (
                           <>

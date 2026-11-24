@@ -153,6 +153,51 @@
   gap: 1rem;
 }
 
+.contactPillsRow {
+  display: flex;
+  gap: 10px;
+}
+
+.contactPill {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-navy);
+  background-color: var(--bg-main);
+  border: 1.5px solid var(--border-light);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contactPill:hover {
+  border-color: #A66BFF;
+}
+
+.contactPillActive {
+  background: #7C3AED;
+  border-color: #7C3AED;
+  color: #FFFFFF;
+}
+
+.errorBanner {
+  background: #FEF2F2;
+  border: 1px solid #F87171;
+  color: #991B1B;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.errorBanner a {
+  color: #7C3AED;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
 @media (min-width: 540px) {
   .inputsGrid {
     grid-template-columns: 1fr 1fr;

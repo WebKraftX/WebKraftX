@@ -609,6 +609,17 @@
   flex-shrink: 0;
 }
 
+.errorAlertLink {
+  color: #7C3AED;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+
+.errorAlertLink:hover {
+  color: #5B21B6;
+}
+
 /* Fields Grid: 2 columns on desktop */
 .fieldsGrid {
   display: grid;

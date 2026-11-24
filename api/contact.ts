@@ -11,11 +11,11 @@ export interface ContactPayload {
   fullName: string;
   businessName?: string;
   email: string;
-  phone: string;
+  phone?: string;
   service: string;
   budget: string;
   description?: string;
-  preferredContact: 'WhatsApp' | 'Email' | 'Phone call';
+  preferredContact: 'WhatsApp' | 'Email';
   privacyAgree: boolean;
   honeypot?: string;
 }
@@ -35,7 +35,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // 2. Validate required inputs
-    if (!data.fullName || !data.email || !data.phone || !data.service || !data.budget || !data.privacyAgree) {
+    if (!data.fullName || !data.email || !data.service || !data.budget) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
@@ -45,10 +45,12 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // Validate phone digits (minimum 10 digits)
-    const digitsOnly = data.phone.replace(/\D/g, '');
-    if (digitsOnly.length < 10) {
-      return res.status(400).json({ error: 'Invalid phone number' });
+    // Validate phone only if WhatsApp is the preferred contact method
+    if (data.preferredContact === 'WhatsApp') {
+      const digitsOnly = (data.phone || '').replace(/\D/g, '');
+      if (digitsOnly.length < 10) {
+        return res.status(400).json({ error: 'Valid phone number (minimum 10 digits) is required for WhatsApp.' });
+      }
     }
 
     const recipient = process.env.CONTACT_NOTIFICATION_EMAIL || 'contact.webkraftx@gmail.com';

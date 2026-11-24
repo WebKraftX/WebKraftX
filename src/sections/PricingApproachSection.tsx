@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FileText,
   SlidersHorizontal,
@@ -13,8 +13,12 @@ import {
   Send,
   Clock,
   Check,
+  Loader2,
+  AlertCircle,
 } from 'lucide-react';
 import paperPlaneMiniImg from '../assets/paper-plane-mini.png';
+import { submitContactEnquiry } from '../services/contactService';
+import { CONTACT_CONFIG } from '../config/contactConfig';
 import styles from './PricingApproachSection.module.css';
 
 interface PricingApproachSectionProps {
@@ -89,57 +93,21 @@ const PROJECT_TYPE_OPTIONS = [
 ];
 
 export function PricingApproachSection({ onRequestEstimate }: PricingApproachSectionProps) {
-  const shouldReduceMotion = useReducedMotion();
   const [modalOpen, setModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Form states
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    budget: '',
     projectType: PROJECT_TYPE_OPTIONS[0],
     description: '',
+    preferredContact: 'WhatsApp' as 'WhatsApp' | 'Email',
   });
-
-  // 3D Parallax tilt for the Estimate Sheet hero element
-  const estimateRef = useRef<HTMLDivElement>(null);
-  const [estimateTilt, setEstimateTilt] = useState({ x: 0, y: 0 });
-  const [estimateGlare, setEstimateGlare] = useState({ x: 50, y: 50, opacity: 0 });
-
-  const handleEstimateMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!estimateRef.current) return;
-    const rect = estimateRef.current.getBoundingClientRect();
-    const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    setEstimateTilt({ x: -ny * 4, y: nx * 4 });
-    const gx = ((e.clientX - rect.left) / rect.width) * 100;
-    const gy = ((e.clientY - rect.top) / rect.height) * 100;
-    setEstimateGlare({ x: gx, y: gy, opacity: 0.35 });
-  };
-
-  const handleEstimateMouseLeave = () => {
-    setEstimateTilt({ x: 0, y: 0 });
-    setEstimateGlare({ x: 50, y: 50, opacity: 0 });
-  };
-
-  // Magnetic CTA Button Hook
-  const btnRef = useRef<HTMLButtonElement>(null);
-  const [btnOffset, setBtnOffset] = useState({ x: 0, y: 0 });
-
-  const handleBtnMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!btnRef.current) return;
-    const rect = btnRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    setBtnOffset({
-      x: (e.clientX - centerX) * 0.18,
-      y: (e.clientY - centerY) * 0.18,
-    });
-  };
-
-  const handleBtnMouseLeave = () => {
-    setBtnOffset({ x: 0, y: 0 });
-  };
 
   const handleOpenEstimateModal = () => {
     if (onRequestEstimate) {
@@ -149,20 +117,58 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
     }
   };
 
-  const handleSubmitEstimate = (e: React.FormEvent) => {
+  const handleSubmitEstimate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setModalOpen(false);
-      setFormData({
-        name: '',
-        email: '',
-        projectType: PROJECT_TYPE_OPTIONS[0],
-        description: '',
+    setSubmitError(null);
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.budget.trim()) {
+      return;
+    }
+
+    if (formData.preferredContact === 'WhatsApp') {
+      const digitsOnly = formData.phone.replace(/\D/g, '');
+      if (!formData.phone.trim() || digitsOnly.length < 10) {
+        setSubmitError('Please enter at least 10 digits for your phone number to connect on WhatsApp.');
+        return;
+      }
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const res = await submitContactEnquiry({
+        fullName: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        service: formData.projectType,
+        budget: formData.budget.trim(),
+        description: formData.description.trim(),
+        preferredContact: formData.preferredContact,
+        privacyAgree: true,
       });
-    }, 2400);
+
+      if (res.success) {
+        if (res.whatsAppUrl) {
+          window.open(res.whatsAppUrl, '_blank', 'noopener,noreferrer');
+        }
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          budget: '',
+          projectType: PROJECT_TYPE_OPTIONS[0],
+          description: '',
+          preferredContact: 'WhatsApp',
+        });
+      } else {
+        setSubmitError(res.message || 'Something went wrong while delivering your message.');
+      }
+    } catch (err: any) {
+      setSubmitError(err.message || 'Something went wrong while delivering your message.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -275,34 +281,13 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
 
             {/* 4. HERO MOMENT — "The Estimate" Stylized Document Visual */}
             <motion.div
-              ref={estimateRef}
               className={styles.estimateVisualAnchor}
-              onMouseMove={handleEstimateMouseMove}
-              onMouseLeave={handleEstimateMouseLeave}
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div
-                className={styles.estimateSheet}
-                style={{
-                  transform: shouldReduceMotion
-                    ? 'none'
-                    : `rotateX(${estimateTilt.x}deg) rotateY(${estimateTilt.y}deg)`,
-                  transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                }}
-              >
-                {/* Light glare overlay shifting across the glass surface */}
-                <div
-                  className={styles.glassGlareOverlay}
-                  style={{
-                    background: `radial-gradient(circle at ${estimateGlare.x}% ${estimateGlare.y}%, rgba(255,255,255,0.22) 0%, transparent 65%)`,
-                    opacity: estimateGlare.opacity,
-                  }}
-                  aria-hidden="true"
-                />
-
+              <div className={styles.estimateSheet}>
                 {/* 3D Paper Plane Perched on Top-Right Corner with gentle bob & 8s loop-de-loop */}
                 <div className={styles.perchedPlaneWrap} aria-hidden="true">
                   <img
@@ -431,7 +416,7 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
               </div>
             </motion.div>
 
-            {/* 5. CTA Button with Magnetic Hover & Reassurance Line */}
+            {/* 5. CTA Button with Normal Clean Hover & Reassurance Line */}
             <motion.div
               className={styles.ctaWrapper}
               initial={{ opacity: 0, y: 15 }}
@@ -440,19 +425,9 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
               transition={{ duration: 0.6, delay: 0.45 }}
             >
               <button
-                ref={btnRef}
                 className={styles.primaryCtaBtn}
-                onMouseMove={handleBtnMouseMove}
-                onMouseLeave={handleBtnMouseLeave}
                 onClick={handleOpenEstimateModal}
-                style={{
-                  transform: shouldReduceMotion
-                    ? 'none'
-                    : `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
-                  transition: 'transform 0.15s ease-out',
-                }}
               >
-                <span className={styles.btnShineSweep} />
                 <span className={styles.btnText}>Request a Project Estimate</span>
                 <ArrowRight size={17} className={styles.btnArrow} />
               </button>
@@ -565,10 +540,21 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                   <div className={styles.successIconCircle}>
                     <CheckCircle2 size={36} color="#A66BFF" />
                   </div>
-                  <h3 className={styles.successTitle}>Estimate Request Received</h3>
+                  <h3 className={styles.successTitle}>Thanks! We&apos;ll get back to you within 24 hours.</h3>
                   <p className={styles.successDesc}>
-                    Thank you, {formData.name || 'there'}! We will review your project requirements and send a clear, itemised scope estimate to <strong>{formData.email}</strong> within 24 hours.
+                    Thank you! We will review your project requirements and reach out with a transparent, requirement-based breakdown.
                   </p>
+                  <button
+                    type="button"
+                    className={styles.modalSubmitBtn}
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setModalOpen(false);
+                    }}
+                    style={{ marginTop: '1.25rem' }}
+                  >
+                    Done
+                  </button>
                 </div>
               ) : (
                 /* Interactive Mini Form */
@@ -584,9 +570,28 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                     </p>
                   </div>
 
+                  {submitError && (
+                    <div className={styles.modalErrorBanner}>
+                      <AlertCircle size={15} style={{ display: 'inline', marginRight: 6, verticalAlign: -2 }} />
+                      <span>Something went wrong. Reach us directly at </span>
+                      <a href={`mailto:${CONTACT_CONFIG.contactEmail}`}>
+                        {CONTACT_CONFIG.contactEmail}
+                      </a>
+                      <span> or on </span>
+                      <a
+                        href={CONTACT_CONFIG.getWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        WhatsApp
+                      </a>
+                      .
+                    </div>
+                  )}
+
                   <div className={styles.formFields}>
                     <div className={styles.formGroup}>
-                      <label className={styles.formLabel}>Your Name</label>
+                      <label className={styles.formLabel}>Your Name *</label>
                       <input
                         type="text"
                         required
@@ -594,11 +599,12 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className={styles.formInput}
+                        disabled={isSubmitting}
                       />
                     </div>
 
                     <div className={styles.formGroup}>
-                      <label className={styles.formLabel}>Business Email</label>
+                      <label className={styles.formLabel}>Business Email *</label>
                       <input
                         type="email"
                         required
@@ -606,7 +612,57 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className={styles.formInput}
+                        disabled={isSubmitting}
                       />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>
+                        Phone Number {formData.preferredContact === 'WhatsApp' ? '*' : '(Optional)'}
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="e.g. +91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className={styles.formInput}
+                        disabled={isSubmitting}
+                        required={formData.preferredContact === 'WhatsApp'}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Estimated Budget *</label>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        required
+                        placeholder="e.g. ₹25,000 or ₹30,000 – ₹1,00,000"
+                        value={formData.budget}
+                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                        className={styles.formInput}
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Preferred Contact Method</label>
+                      <div className={styles.modalRadioPillsRow}>
+                        {(['WhatsApp', 'Email'] as const).map((method) => {
+                          const isSelected = formData.preferredContact === method;
+                          return (
+                            <button
+                              type="button"
+                              key={method}
+                              className={`${styles.modalRadioPill} ${isSelected ? styles.modalRadioPillActive : ''}`}
+                              onClick={() => setFormData({ ...formData, preferredContact: method })}
+                              disabled={isSubmitting}
+                            >
+                              <span>{method}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
 
                     <div className={styles.formGroup}>
@@ -615,6 +671,7 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                         className={styles.formSelect}
+                        disabled={isSubmitting}
                       >
                         {PROJECT_TYPE_OPTIONS.map((opt) => (
                           <option key={opt} value={opt} className={styles.selectOption}>
@@ -632,13 +689,27 @@ export function PricingApproachSection({ onRequestEstimate }: PricingApproachSec
                         value={formData.description}
                         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                         className={styles.formTextarea}
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
 
-                  <button type="submit" className={styles.modalSubmitBtn}>
-                    <Send size={15} />
-                    <span>Send Estimate Request</span>
+                  <button
+                    type="submit"
+                    className={styles.modalSubmitBtn}
+                    disabled={isSubmitting || !formData.name || !formData.email || !formData.budget}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={15} className="animate-spin" />
+                        <span>Sending…</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={15} />
+                        <span>Send Estimate Request</span>
+                      </>
+                    )}
                   </button>
 
                   <p className={styles.modalFootnote}>

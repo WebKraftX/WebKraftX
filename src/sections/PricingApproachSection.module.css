@@ -206,21 +206,8 @@
   border: 1.5px solid rgba(199, 167, 255, 0.28);
   border-radius: 20px;
   padding: 1.4rem 1.6rem;
-  box-shadow: 0 20px 45px rgba(10, 4, 20, 0.45),
-    0 0 35px rgba(124, 58, 237, 0.16);
-  animation: estimateFloat 6s ease-in-out infinite alternate;
-  will-change: transform;
+  box-shadow: 0 20px 45px rgba(10, 4, 20, 0.45);
   overflow: hidden;
-}
-
-@keyframes estimateFloat {
-  0% {
-    transform: translateY(-4px);
-  }
-
-  100% {
-    transform: translateY(5px);
-  }
 }
 
 /* Light glare overlay shifting across the glass surface */
@@ -516,61 +503,26 @@
   font-size: 0.96rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 8px 24px rgba(139, 47, 255, 0.4),
-    0 0 18px rgba(166, 107, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   overflow: hidden;
-  will-change: transform;
-  animation: ctaGlowPulse 4s ease-in-out infinite;
-}
-
-@keyframes ctaGlowPulse {
-
-  0%,
-  100% {
-    box-shadow: 0 8px 24px rgba(139, 47, 255, 0.4),
-      0 0 18px rgba(166, 107, 255, 0.25);
-  }
-
-  50% {
-    box-shadow: 0 10px 32px rgba(139, 47, 255, 0.65),
-      0 0 34px rgba(199, 167, 255, 0.55);
-  }
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .primaryCtaBtn:hover {
-  box-shadow: 0 14px 38px rgba(139, 47, 255, 0.7),
-    0 0 35px rgba(199, 167, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+  filter: brightness(1.06);
+}
+
+.primaryCtaBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btnShineSweep {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent 100%);
-  transform: skewX(-20deg);
-  animation: shineSweep 4.5s infinite;
-  pointer-events: none;
-}
-
-@keyframes shineSweep {
-  0% {
-    left: -100%;
-  }
-
-  30% {
-    left: 160%;
-  }
-
-  100% {
-    left: 160%;
-  }
+  display: none;
 }
 
 .btnText {
@@ -1044,6 +996,50 @@
 .modalSubmitBtn:hover {
   box-shadow: 0 12px 30px rgba(139, 47, 255, 0.55);
   transform: translateY(-1px);
+}
+
+.modalRadioPillsRow {
+  display: flex;
+  gap: 10px;
+}
+
+.modalRadioPill {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #C7A7FF;
+  background: rgba(14, 6, 26, 0.7);
+  border: 1px solid rgba(199, 167, 255, 0.25);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalRadioPill:hover {
+  border-color: #A66BFF;
+}
+
+.modalRadioPillActive {
+  background: #7C3AED;
+  border-color: #A66BFF;
+  color: #FFFFFF;
+}
+
+.modalErrorBanner {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #FCA5A5;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  margin-bottom: 1rem;
+}
+
+.modalErrorBanner a {
+  color: #C7A7FF;
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .modalFootnote {
