@@ -64,37 +64,37 @@ export const DIVISIONS_LIST: DivisionCategory[] = [
   {
     id: 'design',
     number: '01',
-    title: 'Design & Development',
-    tagline: 'Websites and digital platforms built to convert.',
-    serviceIds: ['web-design', 'ecommerce', 'cro'],
+    title: 'Design & Engineering',
+    tagline: 'Websites and mobile apps built to engage and convert.',
+    serviceIds: ['web-design', 'mobile-app-dev'],
   },
   {
     id: 'growth',
     number: '02',
-    title: 'Growth & Marketing',
-    tagline: 'Data-driven acquisition, search dominance, and community.',
+    title: 'Growth & Reach',
+    tagline: 'Search dominance, paid ad acquisition, and active social presence.',
     serviceIds: ['seo', 'paid-ads', 'social-media'],
   },
   {
     id: 'content',
     number: '03',
-    title: 'Content & AI',
-    tagline: 'Content that stops the scroll.',
-    serviceIds: ['short-video', 'ai-video', 'branding'],
+    title: 'Content & Branding',
+    tagline: 'Content that stops the scroll and builds recognizable brand identity.',
+    serviceIds: ['content-creation', 'brand-marketing'],
   },
 ];
 
 export const SERVICES_MAP: Record<string, ServiceData> = {
   'web-design': {
     id: 'web-design',
-    title: 'Web Design & Development',
-    shortTitle: 'Web Design',
+    title: 'Website Design & Development',
+    shortTitle: 'Web Design & Dev',
     accentWord: 'Engineered',
     divisionId: 'design',
     divisionNumber: '01',
     divisionTitle: 'Design & Development',
     iconName: 'Layout',
-    oneLiner: 'Custom, high-speed websites engineered in modern React and Next.js to represent your brand and convert visitors.',
+    oneLiner: 'Professional websites and landing pages for your business.',
     heroDescription:
       'We combine conversion-focused UI design in Figma with clean, modular frontend engineering. Every site is custom-built with sub-second page loads, headless CMS integration, and rigorous cross-device QA.',
     breadcrumbLabel: 'Web Design & Development',
@@ -375,14 +375,14 @@ export const SERVICES_MAP: Record<string, ServiceData> = {
 
   'seo': {
     id: 'seo',
-    title: 'Search Engine Optimization (SEO)',
+    title: 'SEO',
     shortTitle: 'SEO',
-    accentWord: 'Sustainable',
+    accentWord: 'Discoverable',
     divisionId: 'growth',
     divisionNumber: '02',
-    divisionTitle: 'Growth & Marketing',
+    divisionTitle: 'Growth & Reach',
     iconName: 'Search',
-    oneLiner: 'Ethical technical and on-page search optimization to help your business earn high-intent organic rankings.',
+    oneLiner: 'Helping your business rank better on Google and get discovered.',
     heroDescription:
       'We focus on high-intent commercial keywords that drive actual customer inquiries, not vanity search volume. From technical Core Web Vitals to local Google Maps pack dominance, we build compounding organic assets.',
     breadcrumbLabel: 'Search Engine Optimization',
@@ -471,14 +471,14 @@ export const SERVICES_MAP: Record<string, ServiceData> = {
 
   'paid-ads': {
     id: 'paid-ads',
-    title: 'Paid Advertising (Meta & Google Ads)',
+    title: 'Paid Advertising',
     shortTitle: 'Paid Ads',
-    accentWord: 'Measurable',
+    accentWord: 'Targeted',
     divisionId: 'growth',
     divisionNumber: '02',
-    divisionTitle: 'Growth & Marketing',
+    divisionTitle: 'Growth & Reach',
     iconName: 'Target',
-    oneLiner: 'Targeted customer acquisition campaigns across Meta and Google with disciplined budgets and verified ROAS.',
+    oneLiner: 'Targeted Meta ads to reach potential customers.',
     heroDescription:
       'We eliminate wasted ad spend through granular audience targeting, high-converting creative variations, and clean server-side conversion tracking. Every rupee spent is measured against real revenue and qualified leads.',
     breadcrumbLabel: 'Paid Advertising',
@@ -567,14 +567,14 @@ export const SERVICES_MAP: Record<string, ServiceData> = {
 
   'social-media': {
     id: 'social-media',
-    title: 'Social Media Marketing & Management',
+    title: 'Social Media Handling',
     shortTitle: 'Social Media',
     accentWord: 'Compelling',
     divisionId: 'growth',
     divisionNumber: '02',
-    divisionTitle: 'Growth & Marketing',
+    divisionTitle: 'Growth & Reach',
     iconName: 'Share2',
-    oneLiner: 'A consistent, brand-aligned social footprint that builds authority, credibility, and customer engagement.',
+    oneLiner: 'Managing and growing your social media presence.',
     heroDescription:
       'We manage your social presence end-to-end: monthly content calendars, custom graphic design, engaging copywriting, and community management. We turn silent profiles into active, trustworthy hubs that support your sales pipeline.',
     breadcrumbLabel: 'Social Media Management',
@@ -946,9 +946,304 @@ export const SERVICES_MAP: Record<string, ServiceData> = {
         description: 'Tokens exported as CSS/Tailwind variables for direct, painless implementation by engineers.',
       },
     ],
-    relatedServiceIds: ['web-design', 'social-media', 'short-video'],
+    relatedServiceIds: ['web-design', 'social-media', 'content-creation'],
+  },
+
+  'content-creation': {
+    id: 'content-creation',
+    title: 'Content Creation',
+    shortTitle: 'Content Creation',
+    accentWord: 'Engaging',
+    divisionId: 'content',
+    divisionNumber: '03',
+    divisionTitle: 'Content & Branding',
+    iconName: 'Video',
+    oneLiner: 'Creative posts, reels, AI-powered videos and real short-form shoots.',
+    heroDescription:
+      'We combine on-location 4K cinema filming, viral vertical short-form editing, and generative AI media to produce high-retention content that captivates audiences across Reels, Shorts, and social feeds.',
+    breadcrumbLabel: 'Content Creation',
+    whatsIncluded: [
+      {
+        title: 'On-Location 4K Video Shoots',
+        description: 'Professional cinema camera, lighting, and wireless audio setups for interviews, product demos, and brand showcases.',
+        iconName: 'Camera',
+      },
+      {
+        title: 'AI-Assisted Video & Avatars',
+        description: 'Generative media models, natural voice synthesis, and digital avatars to scale production speed 5x.',
+        iconName: 'Sparkles',
+      },
+      {
+        title: 'High-Retention Short-Form Reels',
+        description: 'Dynamic 9:16 vertical editing with animated subtitles, sound design, and retention hooks proven for TikTok and Instagram.',
+        iconName: 'Film',
+      },
+      {
+        title: 'Social Media Graphics & Carousels',
+        description: 'Bespoke static and carousel graphics designed in Figma that stop the scroll and build visual authority.',
+        iconName: 'Image',
+      },
+      {
+        title: 'Hook Ideation & Scripting',
+        description: 'Compelling 3-second opening hooks and story frameworks written to maximize watch-through and engagement.',
+        iconName: 'MessageSquare',
+      },
+      {
+        title: 'Cross-Platform Formatting',
+        description: 'Master assets exported and tagged for Instagram, YouTube Shorts, LinkedIn, and Facebook.',
+        iconName: 'Share2',
+      },
+    ],
+    howWeExecute: [
+      {
+        step: '01',
+        phase: 'Concept',
+        title: 'Hook Strategy & Storyboards',
+        description: 'We develop high-retention scripts, visual hooks, and shot lists aligned with your marketing milestones.',
+      },
+      {
+        step: '02',
+        phase: 'Produce',
+        title: 'Cinema Shoot & Generative AI',
+        description: 'We film on-location with 4K equipment and leverage generative AI workflows for b-roll and visual assets.',
+      },
+      {
+        step: '03',
+        phase: 'Edit',
+        title: 'Kinetic Editing & Audio Design',
+        description: 'Fast-paced editing, motion graphics, sound design, and color grading for maximum viewer retention.',
+      },
+      {
+        step: '04',
+        phase: 'Deliver',
+        title: 'Master Assets & Distribution Kit',
+        description: 'Complete cross-platform delivery with optimized thumbnails, captions, and publishing schedules.',
+      },
+    ],
+    whoItsFor: [
+      'Brands needing high-quality video and visual content without building an expensive in-house production crew.',
+      'Businesses looking to scale social media reach through high-retention Reels, Shorts, and AI-powered video.',
+      'Companies launching new products or services that demand cinematic visual storytelling.',
+    ],
+    outcomes: [
+      {
+        metric: '5x',
+        label: 'Faster Production',
+        description: 'Rapid asset turnaround combining on-site production with generative AI tooling.',
+      },
+      {
+        metric: '80%+',
+        label: 'Watch-Through',
+        description: 'Hook-first scripting engineered to capture attention in the first 3 seconds.',
+      },
+      {
+        metric: '100%',
+        label: 'Brand Aligned',
+        description: 'Consistent color grading, typography, and audio cues across all media.',
+      },
+    ],
+    relatedServiceIds: ['social-media', 'brand-marketing', 'paid-ads'],
+  },
+
+  'brand-marketing': {
+    id: 'brand-marketing',
+    title: 'Brand Marketing',
+    shortTitle: 'Brand Marketing',
+    accentWord: 'Unmistakable',
+    divisionId: 'content',
+    divisionNumber: '03',
+    divisionTitle: 'Content & Branding',
+    iconName: 'Palette',
+    oneLiner: 'Building a strong and recognizable brand identity.',
+    heroDescription:
+      'We craft iconic visual identities, cohesive brand guidelines, and distinctive design systems that make your business instantly recognizable and build long-term customer trust.',
+    breadcrumbLabel: 'Brand Marketing',
+    whatsIncluded: [
+      {
+        title: 'Core Logo & Visual Mark Suite',
+        description: 'Primary logo, responsive icon mark, wordmarks, and monochrome variations prepared for digital and print.',
+        iconName: 'Feather',
+      },
+      {
+        title: 'Color Architecture & Typography Systems',
+        description: 'Accessible color palettes, calibrated contrast ratios, and editorial font pairings for digital products.',
+        iconName: 'Type',
+      },
+      {
+        title: 'Comprehensive Brand Guidelines',
+        description: 'A detailed brand handbook covering logo usage, spacing, color hierarchies, and tone of voice.',
+        iconName: 'BookOpen',
+      },
+      {
+        title: 'Marketing & Social Media Collateral',
+        description: 'Custom social templates, pitch decks, business cards, and digital stationery in Figma.',
+        iconName: 'Layout',
+      },
+      {
+        title: 'Custom Vector Badges & Patterns',
+        description: 'Unique digital badges, background grain textures, and custom graphic accents.',
+        iconName: 'Grid',
+      },
+      {
+        title: 'Digital Design Tokens for Developers',
+        description: 'CSS variables and Tailwind token configuration ready for instant, consistent web implementation.',
+        iconName: 'Code',
+      },
+    ],
+    howWeExecute: [
+      {
+        step: '01',
+        phase: 'Discovery',
+        title: 'Brand Strategy & Market Positioning',
+        description: 'We analyze your market, competitors, and target audience to define your visual positioning.',
+      },
+      {
+        step: '02',
+        phase: 'Design',
+        title: 'Visual Direction Exploration',
+        description: 'We develop two distinct creative directions exploring typography, mark design, and overall mood.',
+      },
+      {
+        step: '03',
+        phase: 'Refine',
+        title: 'Identity System Architecture',
+        description: 'We refine the chosen direction into an exhaustive asset suite including logos, tokens, and collateral.',
+      },
+      {
+        step: '04',
+        phase: 'Launch',
+        title: 'Brand Book & Asset Library',
+        description: 'Full delivery of vector assets (SVG, PNG, PDF) with practical guidelines for your team.',
+      },
+    ],
+    whoItsFor: [
+      'New companies needing an authoritative, cohesive visual identity before launching publicly.',
+      'Established businesses whose branding feels fragmented across different websites, brochures, and channels.',
+      'Founders raising capital or launching enterprise products who need to project premium credibility.',
+    ],
+    outcomes: [
+      {
+        metric: '100% Unique',
+        label: 'Original Identity',
+        description: 'Custom-designed from scratch with zero generic templates or stock logos.',
+      },
+      {
+        metric: 'Unified DNA',
+        label: 'Visual Consistency',
+        description: 'Every touchpoint speaks the exact same professional visual language.',
+      },
+      {
+        metric: 'High Trust',
+        label: 'Market Credibility',
+        description: 'A polished visual identity that commands confidence and premium client perception.',
+      },
+    ],
+    relatedServiceIds: ['content-creation', 'web-design', 'social-media'],
+  },
+
+  'mobile-app-dev': {
+    id: 'mobile-app-dev',
+    title: 'Mobile App Development',
+    shortTitle: 'Mobile Apps',
+    accentWord: 'Frictionless',
+    divisionId: 'design',
+    divisionNumber: '01',
+    divisionTitle: 'Design & Development',
+    iconName: 'Smartphone',
+    oneLiner: 'Custom apps for bookings, ordering and customer engagement.',
+    heroDescription:
+      'We design and build custom iOS and Android mobile apps engineered for frictionless customer bookings, digital ordering, instant push notifications, and high customer retention.',
+    breadcrumbLabel: 'Mobile App Development',
+    whatsIncluded: [
+      {
+        title: 'Cross-Platform iOS & Android Apps',
+        description: 'High-performance native-feel applications built with modern frameworks for seamless deployment on both App Store and Google Play.',
+        iconName: 'Smartphone',
+      },
+      {
+        title: 'Booking & Appointment Workflows',
+        description: 'Intuitive date/time scheduling, calendar sync, staff assignment, and automated reminder alerts.',
+        iconName: 'Calendar',
+      },
+      {
+        title: 'Digital Ordering & Menu Architecture',
+        description: 'Fast catalog browsing, real-time item availability, variant modifiers, and instant cart drawer.',
+        iconName: 'ShoppingBag',
+      },
+      {
+        title: 'Integrated Secure Payments & UPI',
+        description: 'Frictionless checkout with Razorpay, Stripe, UPI deep linking, and automated digital invoices.',
+        iconName: 'CreditCard',
+      },
+      {
+        title: 'Push Notifications & Re-engagement',
+        description: 'Direct push messaging for order updates, appointment reminders, promotional deals, and retention triggers.',
+        iconName: 'Bell',
+      },
+      {
+        title: 'Store Publishing & Launch Support',
+        description: 'Complete assistance with Apple Developer and Google Play Console review, compliance, and store publishing.',
+        iconName: 'ShieldCheck',
+      },
+    ],
+    howWeExecute: [
+      {
+        step: '01',
+        phase: 'Blueprint',
+        title: 'User Flows & Feature Scoping',
+        description: 'We map every user screen, booking journey, and checkout touchpoint for maximum ease of use.',
+      },
+      {
+        step: '02',
+        phase: 'UI/UX',
+        title: 'Figma Mobile App Prototypes',
+        description: 'We craft thumb-friendly mobile layouts, micro-interactions, and high-fidelity clickable prototypes.',
+      },
+      {
+        step: '03',
+        phase: 'Engineering',
+        title: 'Frontend & API Integration',
+        description: 'We build responsive, robust app code integrated with your backend database, payment gateway, and notification services.',
+      },
+      {
+        step: '04',
+        phase: 'Publish',
+        title: 'Testing & Store Submission',
+        description: 'Rigorous device testing across iOS and Android models followed by store submission and launch.',
+      },
+    ],
+    whoItsFor: [
+      'Clinics, salons, consultants, and fitness studios wanting a direct, automated mobile booking system.',
+      'Restaurants, cafes, and bakeries wanting to cut third-party marketplace commissions with their own direct ordering app.',
+      'Brands wanting to boost customer loyalty with direct push notifications and mobile-first account profiles.',
+    ],
+    outcomes: [
+      {
+        metric: 'iOS & Android',
+        label: 'Dual Launch',
+        description: 'Single high-performance codebase published across both Apple and Android ecosystems.',
+      },
+      {
+        metric: '0% Middleman',
+        label: 'Direct Revenue',
+        description: 'Keep 100% of your margins by avoiding aggregator commissions.',
+      },
+      {
+        metric: 'Instant Reach',
+        label: 'Push Notification Hub',
+        description: 'Bring customers back to your business with direct lock-screen notifications.',
+      },
+    ],
+    relatedServiceIds: ['web-design', 'paid-ads', 'social-media'],
   },
 };
+
+// Aliases for seamless backward compatibility
+SERVICES_MAP['branding'] = SERVICES_MAP['brand-marketing'];
+SERVICES_MAP['short-video'] = SERVICES_MAP['content-creation'];
+SERVICES_MAP['ai-video'] = SERVICES_MAP['content-creation'];
+SERVICES_MAP['ecommerce'] = SERVICES_MAP['mobile-app-dev'];
+SERVICES_MAP['cro'] = SERVICES_MAP['web-design'];
 
 /* ========================================================
    2. HOMEPAGE INTERACTIVE PREVIEW DATA (ServicesSection)

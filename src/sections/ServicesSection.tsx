@@ -23,98 +23,81 @@ export interface ServiceCardData {
   image: string;
 }
 
-export const NINE_SERVICES_CARDS: ServiceCardData[] = [
+export const SEVEN_SERVICES_CARDS: ServiceCardData[] = [
   {
-    id: 'web-design',
-    title: 'Web Design & Development',
-    shortTitle: 'Web Design & Dev',
-    category: '01 DESIGN & DEV',
-    description: 'Custom, responsive, and performance-engineered websites that turn visitors into qualified inquiries.',
-    tags: ['Next.js / React', 'Mobile First', 'Sub-second Speed'],
-    accentColor: '#8B5CF6',
-    image: webDesignImg,
-  },
-  {
-    id: 'cro',
-    title: 'Conversion Rate Optimization (CRO)',
-    shortTitle: 'Conversion Optimization',
-    category: '01 DESIGN & DEV',
-    description: 'Turn more existing traffic into paying customers with data-driven funnel optimization and A/B testing.',
-    tags: ['Funnel Audits', 'A/B Testing', 'Higher Conversion'],
-    accentColor: '#EC4899',
-    image: croImg,
-  },
-  {
-    id: 'seo',
-    title: 'Search Engine Optimization (SEO)',
-    shortTitle: 'SEO & Organic Growth',
-    category: '02 DIGITAL GROWTH',
-    description: 'Dominate Google search results, rank for high-intent keywords, and attract organic compounding revenue.',
-    tags: ['Top Rankings', 'Technical SEO', 'More Traffic'],
-    accentColor: '#10B981',
-    image: seoImg,
-  },
-  {
-    id: 'ecommerce',
-    title: 'E-Commerce & Digital Storefronts',
-    shortTitle: 'E-Commerce Stores',
-    category: '01 DESIGN & DEV',
-    description: 'High-converting online store architectures engineered for frictionless checkout and repeat customer sales.',
-    tags: ['Shopify / Custom', '1-Click Checkout', 'Scale Ready'],
-    accentColor: '#F59E0B',
-    image: ecommerceImg,
-  },
-  {
-    id: 'paid-ads',
-    title: 'Paid Advertising (Meta & Google Ads)',
-    shortTitle: 'Paid Ads (Meta/Google)',
-    category: '02 DIGITAL GROWTH',
-    description: 'Disciplined, data-backed ad acquisition targeting high-intent customers at sustainable, scalable ROAS.',
-    tags: ['Meta & Google', 'ROAS Focused', 'Creative Testing'],
-    accentColor: '#EF4444',
-    image: paidAdsImg,
-  },
-  {
-    id: 'social-media',
-    title: 'Social Media Marketing & Management',
-    shortTitle: 'Social Media Marketing',
-    category: '02 DIGITAL GROWTH',
-    description: 'Maintain an active, polished social presence with structured publishing and community growth.',
-    tags: ['Content Engine', '30-Day Grid', 'Active Authority'],
-    accentColor: '#A855F7',
-    image: socialMediaImg,
-  },
-  {
-    id: 'short-video',
-    title: 'Short-Form Video Production',
-    shortTitle: 'Short Video Shoots',
-    category: '03 VIDEO & CREATIVE',
-    description: 'Scroll-stopping vertical video content crafted for modern social feeds, Reels, and TikTok retention.',
-    tags: ['4K Camera Shoots', 'Hook Strategy', 'Viral Retention'],
+    id: 'content-creation',
+    title: 'Content Creation',
+    shortTitle: 'Content Creation',
+    category: '01 CONTENT & MEDIA',
+    description: 'Creative posts, reels, AI-powered videos and real short-form shoots.',
+    tags: ['Reels & Posts', 'AI Video', 'Short Shoots'],
     accentColor: '#EC4899',
     image: shortVideoImg,
   },
   {
-    id: 'ai-video',
-    title: 'AI Video & Synthetic Media',
-    shortTitle: 'AI Synthetic Video',
-    category: '03 VIDEO & CREATIVE',
-    description: 'AI-assisted visual production, synthetic avatars, and rapid scalable video assets for modern brands.',
-    tags: ['AI Avatars', 'Generative Visuals', 'Faster Content'],
-    accentColor: '#06B6D4',
-    image: aiVideoImg,
+    id: 'web-design',
+    title: 'Website Design & Development',
+    shortTitle: 'Web Design & Dev',
+    category: '02 DESIGN & DEV',
+    description: 'Professional websites and landing pages for your business.',
+    tags: ['Next.js / React', 'Landing Pages', 'Fast Performance'],
+    accentColor: '#8B5CF6',
+    image: webDesignImg,
   },
   {
-    id: 'branding',
-    title: 'Branding & Creative Systems',
-    shortTitle: 'Branding & Systems',
-    category: '03 VIDEO & CREATIVE',
-    description: 'Distinctive visual identities, design systems, and cohesive creative guidelines that command authority.',
-    tags: ['Brand Identity', 'Design Systems', 'Creative Assets'],
+    id: 'seo',
+    title: 'SEO',
+    shortTitle: 'Search Optimization',
+    category: '03 DIGITAL GROWTH',
+    description: 'Helping your business rank better on Google and get discovered.',
+    tags: ['Google Ranking', 'Keywords', 'Organic Traffic'],
+    accentColor: '#10B981',
+    image: seoImg,
+  },
+  {
+    id: 'brand-marketing',
+    title: 'Brand Marketing',
+    shortTitle: 'Brand Marketing',
+    category: '04 BRANDING',
+    description: 'Building a strong and recognizable brand identity.',
+    tags: ['Brand Identity', 'Visual Systems', 'Positioning'],
     accentColor: '#F43F5E',
     image: brandingImg,
   },
+  {
+    id: 'social-media',
+    title: 'Social Media Handling',
+    shortTitle: 'Social Media',
+    category: '05 SOCIAL & REACH',
+    description: 'Managing and growing your social media presence.',
+    tags: ['Content Engine', '30-Day Grid', 'Active Presence'],
+    accentColor: '#A855F7',
+    image: socialMediaImg,
+  },
+  {
+    id: 'paid-ads',
+    title: 'Paid Advertising',
+    shortTitle: 'Paid Ads',
+    category: '06 PAID MEDIA',
+    description: 'Targeted Meta ads to reach potential customers.',
+    tags: ['Meta Ads', 'Targeted Funnels', 'High ROAS'],
+    accentColor: '#EF4444',
+    image: paidAdsImg,
+  },
+  {
+    id: 'mobile-app-dev',
+    title: 'Mobile App Development',
+    shortTitle: 'Mobile Apps',
+    category: '07 MOBILE DEV',
+    description: 'Custom apps for bookings, ordering and customer engagement.',
+    tags: ['iOS & Android', 'Bookings & Orders', 'Custom Workflows'],
+    accentColor: '#06B6D4',
+    image: ecommerceImg,
+  },
 ];
+
+// Backwards compatibility alias
+export const NINE_SERVICES_CARDS = SEVEN_SERVICES_CARDS;
 
 interface ServicesSectionProps {
   onSelectService?: (serviceName: string) => void;
@@ -148,7 +131,7 @@ export function ServicesSection({ onSelectService, onOpenProposal }: ServicesSec
 
           <h2 className={styles.sectionHeading}>
             <span className={styles.headlineRow}>
-              {['Nine', 'focused', 'services.'].map((word, i) => (
+              {['Seven', 'focused', 'services.'].map((word, i) => (
                 <span key={word + i} className={styles.wordMask}>
                   <motion.span
                     className={styles.wordInner}
@@ -211,15 +194,15 @@ export function ServicesSection({ onSelectService, onOpenProposal }: ServicesSec
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
           >
-            From high-converting web applications to full digital growth and high-grade media production.
+            From converting websites to AI-powered content and high-growth social media campaigns.
           </motion.p>
         </div>
 
         {/* --------------------------------------------------------
-            2. TOTAL 9 SERVICE CARDS (3x3 Grid, Real HTML, Non-Clickable)
+            2. TOTAL 7 SERVICE CARDS (4 in Row 1 + 3 Centered in Row 2)
             -------------------------------------------------------- */}
-        <div className={styles.nineCardsGrid}>
-          {NINE_SERVICES_CARDS.map((card, index) => (
+        <div className={styles.sevenCardsGrid}>
+          {SEVEN_SERVICES_CARDS.map((card, index) => (
             <motion.div
               key={card.id}
               className={styles.cardContainer}
@@ -231,6 +214,16 @@ export function ServicesSection({ onSelectService, onOpenProposal }: ServicesSec
                 delay: 0.06 + index * 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
+              onClick={() => onSelectService && onSelectService(card.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelectService && onSelectService(card.id);
+                }
+              }}
+              style={{ cursor: 'pointer' }}
             >
               <div className={styles.cardSurface}>
                 {/* 3D Illustration Area (Transparent PNG, Organic Wavy Pastel Blob) */}

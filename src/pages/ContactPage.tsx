@@ -23,14 +23,12 @@ interface ContactPageProps {
 
 const SERVICE_OPTIONS = [
   'Website Design & Development',
-  'Web Application / Platform',
-  'Conversion Rate Optimization (CRO)',
-  'Search Engine Optimization (SEO)',
-  'Paid Advertising (Meta & Google Ads)',
-  'Social Media Marketing',
-  'Short-Form Video Production',
-  'AI Video & Synthetic Media',
-  'Full Digital Overhaul / Brand Suite',
+  'Content Creation',
+  'SEO',
+  'Brand Marketing',
+  'Social Media Handling',
+  'Paid Advertising',
+  'Mobile App Development',
 ];
 
 const NEXT_STEPS = [

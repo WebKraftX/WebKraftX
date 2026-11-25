@@ -63,32 +63,26 @@ export function FooterSection({ onNavigate, onNavigateRoute, onScrollToTop }: Fo
           {/* Column 2: Services */}
           <div className={styles.colLinks}>
             <h4 className={styles.colHeader}>SERVICES</h4>
+            <button className={styles.linkBtn} onClick={() => handleServiceClick('content-creation')}>
+              Content Creation
+            </button>
             <button className={styles.linkBtn} onClick={() => handleServiceClick('web-design')}>
-              Web Design &amp; Development
-            </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('ecommerce')}>
-              E-Commerce Storefronts
-            </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('cro')}>
-              Conversion Optimization (CRO)
+              Website Design &amp; Development
             </button>
             <button className={styles.linkBtn} onClick={() => handleServiceClick('seo')}>
-              Search Engine Optimization (SEO)
+              SEO
             </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('paid-ads')}>
-              Paid Ads (Meta &amp; Google)
+            <button className={styles.linkBtn} onClick={() => handleServiceClick('brand-marketing')}>
+              Brand Marketing
             </button>
             <button className={styles.linkBtn} onClick={() => handleServiceClick('social-media')}>
-              Social Media Management
+              Social Media Handling
             </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('short-video')}>
-              Short Video Shoots
+            <button className={styles.linkBtn} onClick={() => handleServiceClick('paid-ads')}>
+              Paid Advertising
             </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('ai-video')}>
-              AI Video Production
-            </button>
-            <button className={styles.linkBtn} onClick={() => handleServiceClick('branding')}>
-              Branding &amp; Creative Systems
+            <button className={styles.linkBtn} onClick={() => handleServiceClick('mobile-app-dev')}>
+              Mobile App Development
             </button>
           </div>
 

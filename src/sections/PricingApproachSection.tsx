@@ -84,12 +84,13 @@ const PRICING_JOURNEY_STEPS: JourneyStep[] = [
 ];
 
 const PROJECT_TYPE_OPTIONS = [
-  'Website Development',
-  'Web Application / Platform',
-  'Conversion Rate Optimization (CRO)',
-  'SEO & Organic Growth',
-  'Branding & Creative Design',
-  'Full Digital Overhaul',
+  'Website Design & Development',
+  'Content Creation',
+  'SEO',
+  'Brand Marketing',
+  'Social Media Handling',
+  'Paid Advertising',
+  'Mobile App Development',
 ];
 
 export function PricingApproachSection({ onRequestEstimate }: PricingApproachSectionProps) {

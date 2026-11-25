@@ -87,12 +87,12 @@ export function ServicesPage({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            Nine focused services engineered for conversion, performance, and commercial growth.
+            Seven focused services engineered for conversion, performance, and commercial growth.
           </motion.p>
         </section>
 
         {/* --------------------------------------------------------
-            2. TOTAL 9 SERVICE CARDS (3x3 Grid, Real HTML, Non-Clickable)
+            2. TOTAL 7 SERVICE CARDS (4 in Row 1 + 3 Centered in Row 2)
             -------------------------------------------------------- */}
         <section className={styles.nineCardsSection}>
           <div className={styles.nineCardsGrid}>
@@ -108,6 +108,16 @@ export function ServicesPage({
                   delay: 0.06 + index * 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
+                onClick={() => onNavigateRoute('/services/' + card.id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onNavigateRoute('/services/' + card.id);
+                  }
+                }}
+                style={{ cursor: 'pointer' }}
               >
                 <div className={styles.cardSurface}>
                   {/* 3D Illustration Area */}

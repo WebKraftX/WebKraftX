@@ -12,13 +12,13 @@ interface ProposalModalProps {
 }
 
 const SERVICE_OPTIONS = [
-  'Website Design & Dev',
-  'Conversion Rate Optimization (CRO)',
-  'SEO & Organic Growth',
-  'Paid Ads (Meta & Google)',
-  'Social Media Management',
-  'Short Video Shoots',
-  'AI Video Production',
+  'Website Design & Development',
+  'Content Creation',
+  'SEO',
+  'Brand Marketing',
+  'Social Media Handling',
+  'Paid Advertising',
+  'Mobile App Development',
 ];
 
 export function ProposalModal({ isOpen, onClose, preselectedService }: ProposalModalProps) {

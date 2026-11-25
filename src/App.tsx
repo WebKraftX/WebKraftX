@@ -88,9 +88,8 @@ export default function App() {
     scrollToTarget();
   };
 
-  const handleSelectService = (serviceTitle: string) => {
-    setSelectedServiceForModal(serviceTitle);
-    setProposalModalOpen(true);
+  const handleSelectService = (serviceId: string) => {
+    navigateTo(`/services/${serviceId}`);
   };
 
   const handleCaseStudyInquire = (clientName: string) => {

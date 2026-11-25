@@ -248,7 +248,7 @@ export function Navbar({
                         className={styles.dropdownAllServicesBtn}
                         onClick={() => handleLinkClick('services')}
                       >
-                        <span>View All 9 Services Overview</span>
+                        <span>View All 7 Services Overview</span>
                         <ArrowRight size={14} />
                       </button>
 
